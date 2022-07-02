@@ -10,36 +10,23 @@ import SwiftUI
 struct VerificationView: View {
     let loginManager = LoginManager()
     @State var phoneNumber: String = ""
+    @State var isComplete: Bool = false
     @State var verificationCode: String = ""
     
     var body: some View {
         VStack {
-            HStack {
-                TextField("Enter Your PhoneNumber", text: $phoneNumber)
-                    .padding()
-                    .background(.gray.opacity(0.2))
-                    .cornerRadius(20)
-                Button("전송") {
-                    loginManager.verify(phoneNumber: phoneNumber)
+            VStack(spacing: 17) {
+                HStack {
+                    Text("전화번호를 입력해주세요.")
+                        .font(.title2.bold())
+                    Spacer()
                 }
+                TextInputContainer(title: "전화번호", placeholder: "전화번호를 입력해주세요. (-없이 입력)", keyboardType: .numberPad, description: $phoneNumber, isCompleted: $isComplete)
             }
-            HStack {
-                TextField("Enter Your code", text: $verificationCode)
-                    .padding()
-                    .background(.gray.opacity(0.2))
-                    .cornerRadius(20)
-                Button("인증") {
-                    loginManager.loginWith(verificationCode: verificationCode) { error in
-                        if let error = error {
-                            print("ERROR: 로그인 에러 \(error.localizedDescription)")
-                        } else {
-                            print("DEBUG: 로그인 성공")
-                        }
-                    }
-                }
-            }
+            .padding(.horizontal, 20)
+            .padding(.top, 75)
+           Spacer()
         }
-        .padding()
     }
 }
 
