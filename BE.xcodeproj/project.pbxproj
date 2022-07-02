@@ -19,6 +19,10 @@
 		C08903232870230C00359264 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08903222870230C00359264 /* String.swift */; };
 		C08903252870231D00359264 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08903242870231D00359264 /* DummyModel.swift */; };
 		C08903272870233500359264 /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08903262870233500359264 /* DummyView.swift */; };
+		C089032B287038D500359264 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089032A287038D500359264 /* VerificationView.swift */; };
+		C089033128704B9F00359264 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089033028704B9F00359264 /* Color.swift */; };
+		C089033128704B9F00359264 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089033028704B9F00359264 /* Color.swift */; };
+		C089032B287038D500359264 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089032A287038D500359264 /* VerificationView.swift */; };
 		C0E0B0CC287013BC0081DD1F /* BEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0B0CB287013BB0081DD1F /* BEApp.swift */; };
 		C0E0B0CE287013BC0081DD1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0B0CD287013BC0081DD1F /* ContentView.swift */; };
 		C0E0B0D0287013C00081DD1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E0B0CF287013C00081DD1F /* Assets.xcassets */; };
@@ -42,6 +46,14 @@
 		C08903222870230C00359264 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C08903242870231D00359264 /* DummyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
 		C08903262870233500359264 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
+		C089032828702AC200359264 /* BE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BE.entitlements; sourceTree = "<group>"; };
+		C089032928702AD200359264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C089032A287038D500359264 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
+		C089033028704B9F00359264 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		C089033028704B9F00359264 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		C089032828702AC200359264 /* BE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BE.entitlements; sourceTree = "<group>"; };
+		C089032928702AD200359264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C089032A287038D500359264 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		C0E0B0C8287013BB0081DD1F /* BE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E0B0CB287013BB0081DD1F /* BEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BEApp.swift; sourceTree = "<group>"; };
 		C0E0B0CD287013BC0081DD1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +104,7 @@
 		C08903192870220D00359264 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C089033028704B9F00359264 /* Color.swift */,
 				C08903222870230C00359264 /* String.swift */,
 				7A3DF79B2870308100CCC81A /* View.swift */,
 			);
@@ -103,6 +116,7 @@
 			children = (
 				C089031B2870223000359264 /* Components */,
 				C0E0B0CD287013BC0081DD1F /* ContentView.swift */,
+				C089032A287038D500359264 /* VerificationView.swift */,
 				7A3DF79928702D0400CCC81A /* RegisterNicknameView.swift */,
 				7A3DF7A328704AFC00CCC81A /* RegisterSessionView.swift */,
 				7A3DF79D28703CB800CCC81A /* OnboardingView.swift */,
@@ -158,6 +172,8 @@
 		C0E0B0CA287013BB0081DD1F /* BE */ = {
 			isa = PBXGroup;
 			children = (
+				C089032928702AD200359264 /* Info.plist */,
+				C089032828702AC200359264 /* BE.entitlements */,
 				C0E0B0D9287016F40081DD1F /* GoogleService-Info.plist */,
 				C0E0B0CB287013BB0081DD1F /* BEApp.swift */,
 				C0E0B0CF287013C00081DD1F /* Assets.xcassets */,
@@ -304,9 +320,11 @@
 				7A3DF79A28702D0500CCC81A /* RegisterNicknameView.swift in Sources */,
 				C08903202870228D00359264 /* LoginManager.swift in Sources */,
 				C08903232870230C00359264 /* String.swift in Sources */,
+				C089033128704B9F00359264 /* Color.swift in Sources */,
 				C0E0B0CC287013BC0081DD1F /* BEApp.swift in Sources */,
 				7A3DF7A2287044DC00CCC81A /* OnboardingLastView.swift in Sources */,
 				C089031D2870225800359264 /* Constant.swift in Sources */,
+				C089032B287038D500359264 /* VerificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,12 +451,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BE/BE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BE/Preview Content\"";
 				DEVELOPMENT_TEAM = 4DC5UF7YA9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BE/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -465,12 +485,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BE/BE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BE/Preview Content\"";
 				DEVELOPMENT_TEAM = 4DC5UF7YA9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BE/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
