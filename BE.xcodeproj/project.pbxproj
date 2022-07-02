@@ -11,6 +11,7 @@
 		C0E0B0CE287013BC0081DD1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0B0CD287013BC0081DD1F /* ContentView.swift */; };
 		C0E0B0D0287013C00081DD1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E0B0CF287013C00081DD1F /* Assets.xcassets */; };
 		C0E0B0D3287013C00081DD1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E0B0D2287013C00081DD1F /* Preview Assets.xcassets */; };
+		C0E0B0DA287016F40081DD1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0E0B0D9287016F40081DD1F /* GoogleService-Info.plist */; };
 		CF83E41D96F4B95FD845925A /* Pods_BE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7183E9D455D84C6700905EBA /* Pods_BE.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +23,7 @@
 		C0E0B0CD287013BC0081DD1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0E0B0CF287013C00081DD1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0E0B0D2287013C00081DD1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C0E0B0D9287016F40081DD1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CD58B3F6A9346D51B7A14A85 /* Pods-BE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BE.debug.xcconfig"; path = "Target Support Files/Pods-BE/Pods-BE.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,7 +53,6 @@
 				CD58B3F6A9346D51B7A14A85 /* Pods-BE.debug.xcconfig */,
 				6AC41999BD864A6334FDBEAA /* Pods-BE.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -76,6 +77,7 @@
 		C0E0B0CA287013BB0081DD1F /* BE */ = {
 			isa = PBXGroup;
 			children = (
+				C0E0B0D9287016F40081DD1F /* GoogleService-Info.plist */,
 				C0E0B0CB287013BB0081DD1F /* BEApp.swift */,
 				C0E0B0CD287013BC0081DD1F /* ContentView.swift */,
 				C0E0B0CF287013C00081DD1F /* Assets.xcassets */,
@@ -154,6 +156,7 @@
 			files = (
 				C0E0B0D3287013C00081DD1F /* Preview Assets.xcassets in Resources */,
 				C0E0B0D0287013C00081DD1F /* Assets.xcassets in Resources */,
+				C0E0B0DA287016F40081DD1F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
