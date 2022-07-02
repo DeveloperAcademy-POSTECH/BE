@@ -10,6 +10,7 @@ import SwiftUI
 struct RegisterSessionView: View {
     
     @State var isCompleted: Bool = false
+    @State var selectedSession: String = ""
     
     var body: some View {
         NavigationView {
@@ -21,17 +22,18 @@ struct RegisterSessionView: View {
                     
                     Spacer()
                 }
-                .padding(.horizontal, 20)
 
+                // Session Button Container
                 HStack {
-                    Button(action: {}) {
-                        Text("오전반")
-                    }
+                    SessionSelectionButton(
+                        sessionName: "오전반",
+                        selectedSession: $selectedSession
+                    )
                     
-                    Button(action: {}) {
-                        Text("오후반")
-                    }
-
+                    SessionSelectionButton(
+                        sessionName: "오후반",
+                        selectedSession: $selectedSession
+                    )
                 }
 
                 Spacer()
@@ -39,8 +41,9 @@ struct RegisterSessionView: View {
                 NavigationLink(destination: ContentView(), isActive: $isCompleted) {
                     EmptyView()
                 }
-            }
-
+                
+            }//VStack
+            .padding(.horizontal, 20)
         }// NavigationView
     }// body
 }// RegisterSessionView
@@ -50,3 +53,26 @@ struct RegisterSessionView_Previews: PreviewProvider {
         RegisterSessionView()
     }
 }
+
+// MARK: - 세션 선택 버튼
+struct SessionSelectionButton: View {
+    
+    let sessionName: String
+    
+    @Binding var selectedSession: String
+    
+    var body: some View {
+        Button(action: {
+            selectedSession = sessionName
+        }) {
+            Text(sessionName)
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundColor(.white)
+                .padding(.vertical, 27)
+                .padding(.horizontal, 56)
+                .background(selectedSession == sessionName ? .red : .gray)
+                .cornerRadius(12)
+        }
+
+    }// body
+}// SessionSelectionButton
