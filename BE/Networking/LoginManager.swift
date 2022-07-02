@@ -21,7 +21,7 @@ class LoginManager {
     }
     
     func loginWith(verificationCode: String, completion: @escaping (Error?) -> Void) {
-        let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")
+        guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") else { return }
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: verificationCode)
         
         Auth.auth().signIn(with: credential) { authResult, error in
