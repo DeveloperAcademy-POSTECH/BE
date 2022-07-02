@@ -35,6 +35,15 @@ struct OnboardingLastView: View {
                         .foregroundColor(.white)
                 }
                 
+                NavigationLink {
+                    RegisterNicknameView(isFirstLaunching: $isFirstLaunching)
+                        .navigationTitle("")
+                } label: {
+                    Text("텍스트")
+                .foregroundColor(.white)
+                }
+
+                
                 Spacer()
 
             }// VStack
