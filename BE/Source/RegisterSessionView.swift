@@ -52,7 +52,16 @@ struct RegisterSessionView: View {
                 .frame(height: 60)
         }//VStack
         .padding(.horizontal, 20)
+        .onDisappear {
+            setSession()
+        }
     }// body
+    
+    //MARK: - Helpers
+    func setSession() {
+        UserDefaults.standard.set(selectedSession, forKey: "userSession")
+        print("DEBUG: selected \(selectedSession)")
+    }
 }// RegisterSessionView
 
 struct RegisterSessionView_Previews: PreviewProvider {

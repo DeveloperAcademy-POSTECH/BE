@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class VerificationViewModel: ObservableObject {
-    let loginManager = LoginManager()
+    var loginManager = LoginManager.shared
     @Published var phoneNumber: String = ""
     @Published var verificationCode: String = ""
     @Published var isComplete: Bool = false
@@ -19,9 +19,11 @@ class VerificationViewModel: ObservableObject {
     
     init() {
         $phoneNumber
-            .sink { inputValue in
+            .sink {  inputValue in
                 print("DEBUG: inputValue - \(inputValue)")
+                
                 guard self.phoneNumber.count == 11 else { return }
+                guard self.phoneNumber.substring(from: 0, to: 3) == "010" else { return }
                 self.requestVerificationCode()
                 self.isValidNumber = true
                 print(self.isValidNumber)

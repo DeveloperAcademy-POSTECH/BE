@@ -38,11 +38,17 @@ class OrderManager: ObservableObject {
             }
     }
     
-    func order(with data: OrderData) {
+    func order(with menu: String) {
+        guard let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") else { return }
+        guard let userName = UserDefaults.standard.string(forKey: "userName") else { return }
+        guard let userSession = UserDefaults.standard.string(forKey: "userSession") else {return}
+        let user = "\(userSession == "오후" ? "A" : "M").\(userName)"
+        let oidString = UUID().uuidString
         let parameters: [[String: String]] = [[
-            "user" : data.user,
-            "menu" : data.menu,
-            "lastPhoneNumber" : data.lastPhoneNumber
+            "oid" : oidString,
+            "user" : user,
+            "menu" : menu,
+            "phoneNumber" : phoneNumber
         ]]
         
         let url = URL(string: Secret.orderUrl)
@@ -73,9 +79,12 @@ class OrderManager: ObservableObject {
             }
     }
     
-    func cancellOrder(with userName: String) {
+    func cancellOrder() {
+        guard let userName = UserDefaults.standard.string(forKey: "userName") else { return }
+        guard let userSession = UserDefaults.standard.string(forKey: "userSession") else {return}
+        let user = "\(userSession == "오후" ? "A" : "M").\(userName)"
         let parameters: [[String: String]] = [[
-            "user" : userName
+            "user" : user
         ]]
         
         let url = URL(string: Secret.orderUrl)
