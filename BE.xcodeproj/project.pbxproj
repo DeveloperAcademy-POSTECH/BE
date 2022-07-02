@@ -15,6 +15,7 @@
 		C08903232870230C00359264 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08903222870230C00359264 /* String.swift */; };
 		C08903252870231D00359264 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08903242870231D00359264 /* DummyModel.swift */; };
 		C08903272870233500359264 /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08903262870233500359264 /* DummyView.swift */; };
+		C089033128704B9F00359264 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089033028704B9F00359264 /* Color.swift */; };
 		C089032B287038D500359264 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089032A287038D500359264 /* VerificationView.swift */; };
 		C0E0B0CC287013BC0081DD1F /* BEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0B0CB287013BB0081DD1F /* BEApp.swift */; };
 		C0E0B0CE287013BC0081DD1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E0B0CD287013BC0081DD1F /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 		C08903222870230C00359264 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C08903242870231D00359264 /* DummyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
 		C08903262870233500359264 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
+		C089033028704B9F00359264 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C089032828702AC200359264 /* BE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BE.entitlements; sourceTree = "<group>"; };
 		C089032928702AD200359264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C089032A287038D500359264 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		C08903192870220D00359264 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C089033028704B9F00359264 /* Color.swift */,
 				C08903222870230C00359264 /* String.swift */,
 				7A3DF79B2870308100CCC81A /* View.swift */,
 			);
@@ -297,6 +300,7 @@
 				7A3DF79A28702D0500CCC81A /* RegisterNicknameView.swift in Sources */,
 				C08903202870228D00359264 /* LoginManager.swift in Sources */,
 				C08903232870230C00359264 /* String.swift in Sources */,
+				C089033128704B9F00359264 /* Color.swift in Sources */,
 				C0E0B0CC287013BC0081DD1F /* BEApp.swift in Sources */,
 				C089031D2870225800359264 /* Constant.swift in Sources */,
 				C089032B287038D500359264 /* VerificationView.swift in Sources */,
