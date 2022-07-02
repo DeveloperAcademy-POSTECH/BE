@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MenuView: View {
+    @EnvironmentObject var orderViewModel: OrderViewModel
 
     var body: some View {
         NavigationView {
@@ -31,7 +32,7 @@ struct MenuView: View {
                         
                         // Restaurant Name
                         HStack {
-                            Text("참서리")
+                            Text(Restaurant.restaurantName)
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .foregroundColor(.gray)
@@ -42,9 +43,11 @@ struct MenuView: View {
                         .padding(.bottom, 11)
                         
                         // Menu detail links
-                        ForEach (0..<3) { _ in
-                            NavigationLink (destination: MenuDetailView().navigationBarHidden(true)) {
-                                MenuDetailLink()
+                        ForEach (Restaurant.menuList, id: \.self) { menuInfo in
+                            NavigationLink (
+                                destination: MenuDetailView(menuModel: menuInfo).navigationBarHidden(true)
+                            ) {
+                                MenuDetailLink(foodName: menuInfo.foodName.rawValue)
                             }
                         }
                         

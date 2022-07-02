@@ -8,7 +8,10 @@
 import FirebaseAuth
 import Foundation
 
-class LoginManager {
+class LoginManager: ObservableObject {
+    static let shared = LoginManager()
+    private init() {}
+    
     func verify(phoneNumber: String) {
         UserDefaults.standard.set(phoneNumber, forKey: "phoneNumber")
         PhoneAuthProvider.provider()

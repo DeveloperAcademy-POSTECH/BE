@@ -10,7 +10,7 @@ import SwiftUI
 struct RadioButtonContainer: View {
     
     let title: String
-    @Binding var price: Int
+    let price: Int
     @Binding var isSelected: String
     
     var body: some View {
@@ -47,13 +47,13 @@ struct RadioButtonContainer: View {
 struct RadioButtonContainer_Previews: PreviewProvider {
     
     static let title: String = "Hello"
-    @State static var price: Int = 50
+    static var price: Int = 50
     @State static var isSelected: String = "기본"
     
     static var previews: some View {
         RadioButtonContainer(
             title: title,
-            price: $price,
+            price: price,
             isSelected: $isSelected
         )
     }
