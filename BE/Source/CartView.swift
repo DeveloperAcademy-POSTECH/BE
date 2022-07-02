@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CartView: View {
     
+    @EnvironmentObject var orderViewModel: OrderViewModel
     @State var quantity: Int = 0
     @State var isAlertActive: Bool = false
     
@@ -30,7 +31,7 @@ struct CartView: View {
                     MenuTitle()
                     
                     HStack {
-                        Text("참서리")
+                        Text(Restaurant.restaurantName)
                             .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(.gray)
@@ -40,11 +41,14 @@ struct CartView: View {
                     
                     // Menu Review List
                     ScrollView {
-                        MenuReviewContainer(menuName: "3겹살", price: 5000, quantity: $quantity)
-                        MenuReviewContainer(menuName: "4겹살", price: 10000, quantity: $quantity)
-                        MenuReviewContainer(menuName: "5겹살", price: 10000, quantity: $quantity)
-                        MenuReviewContainer(menuName: "6겹살", price: 10000, quantity: $quantity)
-                        MenuReviewContainer(menuName: "7겹살", price: 10000, quantity: $quantity)
+                        ForEach(orderViewModel.orders) { item in
+                            MenuReviewContainer(
+                                menuName: item.menu,
+                                price: 1000,
+                                quantity: 1
+                            )
+                            
+                        }
                     }
                     
                     HStack {

@@ -11,7 +11,7 @@ struct MenuReviewContainer: View {
 
     let menuName: String
     let price: Int
-    @Binding var quantity: Int
+    let quantity: Int
     
     var body: some View {
         VStack {
@@ -27,7 +27,7 @@ struct MenuReviewContainer: View {
                 
                 Spacer()
                 
-                CustomStepper(quantity: $quantity)
+                Text("\(quantity)")
             }
         }
         .padding(.vertical, 17)
@@ -42,7 +42,7 @@ struct MenuReviewContainer_Previews: PreviewProvider {
         MenuReviewContainer(
             menuName: "삼겹살",
             price: 5000,
-            quantity: .constant(0)
+            quantity: 10
         )
     }
 }

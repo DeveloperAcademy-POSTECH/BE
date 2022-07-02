@@ -8,13 +8,13 @@
 import Foundation
 
 class OrderViewModel: ObservableObject {
-    @Published var userModel: [UserModel] = []
+    @Published var orders: [OrderModel] = []
     
     init() {
-        print("Order View Model is working on")
+        return
     }
     
-//    func getOrder(_ order: OrderModel) {
-//        self.userModel.append(order)
-//    }
+    func getOrder(_ order: OrderModel) {
+        self.orders.append(order)
+    }
 }

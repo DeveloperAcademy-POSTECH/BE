@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuDetailView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var orderViewModel: OrderViewModel
     @State var price: Int = 0
     @State var isSelected: String = "기본"
     @State var quantity: Int = 0
@@ -19,7 +20,23 @@ struct MenuDetailView: View {
     let normalSize: String = "기본"
     let plusSize: String = "곱빼기"
     
-    func dummyFunction() { }
+    //nickName:String, foodName: FoodName, size: String, price: Int, quantity: Int, totalPrice: Int
+    func dummyFunction() {
+        let order: OrderModel = OrderModel(
+            id: UUID(),
+            user: "bethev",
+            menu: menuModel.foodName.rawValue,
+            phoneNumber: "01011112222"
+        )
+        
+        for _ in (0..<quantity) {
+            orderViewModel.getOrder(order)
+        }
+        
+        print(orderViewModel.orders)
+        
+        presentationMode.wrappedValue.dismiss()
+    }
     
     var body: some View {
         VStack {
