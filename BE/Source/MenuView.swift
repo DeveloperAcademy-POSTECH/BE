@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MenuView: View {
-    
     @EnvironmentObject var orderViewModel: OrderViewModel
 
     var body: some View {

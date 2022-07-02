@@ -25,8 +25,8 @@ struct MenuDetailView: View {
         VStack {
             // 상단 툴바
             UpperToolbar()
-            .padding(.horizontal, 24)
-            .padding(.bottom, 7)
+                .padding(.horizontal, 24)
+                .padding(.bottom, 7)
             
             // 메뉴 선정
             ZStack {
@@ -117,9 +117,8 @@ struct MenuDetailView: View {
 }// MenuDetailView
 
 struct MenuDetailView_Previews: PreviewProvider {
-
     static let menuModel = MenuModel(foodName: .pepper, price: 5500, plusSize: true)
-
+    
     static var previews: some View {
         MenuDetailView(menuModel: menuModel)
     }
