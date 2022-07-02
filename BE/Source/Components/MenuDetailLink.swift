@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct MenuDetailLink: View {
+    
+    let foodName: String
+    
     var body: some View {
             HStack {
-                Text("고추장불고기 덮밥")
+                Text(foodName)
                     .foregroundColor(Color.container)
                     .font(.headline)
                     .padding(.leading, 17)
@@ -32,6 +35,6 @@ struct MenuDetailLink: View {
 
 struct MenuDetailLink_Previews: PreviewProvider {
     static var previews: some View {
-        MenuDetailLink()
+        MenuDetailLink(foodName: "고추장불고기 덮밥")
     }
 }
