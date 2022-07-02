@@ -15,12 +15,17 @@ struct OnboardingTabView: View {
         NavigationView {
             TabView {
                 OnboardingFirstView()
+                OnboardingSecondView()
                 OnboardingLastView(isFirstLaunching: $isFirstLaunching)
             }
             .ignoresSafeArea()
         .tabViewStyle(PageTabViewStyle())
+        .navigationBarHidden(true)
+        .background(Color.main.ignoresSafeArea())
         }
         .accentColor(.main)
+      
+       
     }
 }
 

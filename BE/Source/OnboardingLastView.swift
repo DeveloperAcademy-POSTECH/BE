@@ -8,46 +8,45 @@
 import SwiftUI
 
 struct OnboardingLastView: View {
-    
     @Binding var isFirstLaunching: Bool
     
     var body: some View {
         ZStack {
             Color.red.ignoresSafeArea()
-            
             VStack {
-                HStack {
-                    Text("온보딩 마지막 뷰 테스트")
-                        .foregroundColor(.white)
-                        .font(.system(size: 22, weight: .bold))
-                    
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Text("오후 1시 전 어느 때나\n메뉴를 선택하고 계좌에 입금하면\n도시락을 받을 수 있습니다.\n\n1층에서 배달을 받을 사람은\n앱에서 랜덤으로 정해져\n문자를 받게 됩니다.")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.leading)
+                        .lineSpacing(8)
+                        Spacer()
+                    }
                     Spacer()
-                }// HStack
-                .padding(.horizontal, 20)
-                
+                    
+                }// VStack
                 Spacer()
-                
-                // Onboarding dismiss button
-                Button(action: {
-                    isFirstLaunching.toggle()
-                }) {
-                    Text("텍스트")
-                        .foregroundColor(.white)
-                }
-                
                 NavigationLink {
                     RegisterNicknameView(isFirstLaunching: $isFirstLaunching)
                         .navigationTitle("")
                 } label: {
-                    Text("텍스트")
-                .foregroundColor(.white)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundColor(.white)
+                        
+                        Text("다음")
+                            .font(.title2.bold())
+                            .foregroundColor(.main)
+                    }
+                    .frame(height: 60)
                 }
-
-                
                 Spacer()
-
             }// VStack
             .padding(.top, 170)
+            .padding(.horizontal, 20)
+            .background(Color.main.ignoresSafeArea())
             
         }// ZStack
     }// body
