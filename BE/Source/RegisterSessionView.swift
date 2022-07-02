@@ -55,7 +55,7 @@ struct RegisterSessionView_Previews: PreviewProvider {
 }
 
 // MARK: - 세션 선택 버튼
-struct SessionSelectionButton: View {
+fileprivate struct SessionSelectionButton: View {
     
     let sessionName: String
     

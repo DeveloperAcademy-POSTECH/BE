@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    //OnBoarding
+    // OnBoarding
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
     
     var body: some View {
