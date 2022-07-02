@@ -66,11 +66,11 @@ struct SessionSelectionButton: View {
             selectedSession = sessionName
         }) {
             Text(sessionName)
-                .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(.white)
+                .font(.headline)
+                .foregroundColor(selectedSession == sessionName ? Color.background : Color.container)
                 .padding(.vertical, 27)
                 .padding(.horizontal, 56)
-                .background(selectedSession == sessionName ? .red : .gray)
+                .background(selectedSession == sessionName ? Color.main : Color.background)
                 .cornerRadius(12)
         }
 

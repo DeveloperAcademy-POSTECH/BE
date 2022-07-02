@@ -21,16 +21,16 @@ struct TextInputContainer: View {
         VStack (alignment: .leading) {
             // 닉네임, 전화번호 등 타이틀을 설정합니다.
             Text(title)
-                .foregroundColor(.red)
-                .font(.system(size: 16, weight: .medium))
+                .foregroundColor(Color.main)
+                .font(.subheadline)
             
             // 사용자의 텍스트를 입력받습니다.
             TextField("", text: $description)
                 .keyboardType(keyboardType)
-                .font(.system(size: 22, weight: .regular))
+                .font(.title2)
                 .placeholder(when: description.isEmpty) {
                     Text(placeholder)
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color.background)
                 }
                 .onSubmit {
                     self.isCompleted = true
@@ -39,7 +39,7 @@ struct TextInputContainer: View {
         }// VStack
         .padding(.leading, 14)
         .padding(.vertical, 15)
-        .background(.gray)
+        .background(Color.background)
         .cornerRadius(12)
     }// body
 }// TextInputContainer
