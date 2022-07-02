@@ -5,4 +5,27 @@
 //  Created by GOngTAE on 2022/07/02.
 //
 
+import FirebaseAuth
 import Foundation
+
+class LoginManager {
+    func verify(phoneNumber: String) {
+        PhoneAuthProvider.provider()
+            .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
+                if let error = error {
+                    
+                } else {
+                    UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+                }
+            }
+    }
+    
+    func loginWith(verificationCode: String, completion: @escaping (Error?) -> Void) {
+        let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: verificationCode)
+        
+        Auth.auth().signIn(with: credential) { authResult, error in
+            completion(error)
+        }
+    }
+}
