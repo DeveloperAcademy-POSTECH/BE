@@ -12,25 +12,48 @@ struct OnboardingTabView: View {
     
     var body: some View {
         NavigationView {
-            TabView {
-                OnboardingFirstView()
-                OnboardingSecondView()
-                OnboardingLastView(isFirstLaunching: $isFirstLaunching)
+            ZStack {
+                Color.main.ignoresSafeArea()
+                
+                VStack {
+                    TabView {
+                        Group {
+                            OnboardingFirstView()
+                            OnboardingSecondView()
+                            OnboardingLastView(isFirstLaunching: $isFirstLaunching)
+                        }
+                        .padding(.top, 300)
+                    }
+                    .tabViewStyle(PageTabViewStyle())
+                    .navigationBarHidden(true)
+                    .navigationTitle("")
+                }
+                .overlay(
+                    VStack {
+                        HStack {
+                            Spacer()
+                            
+                            Image("azeomi")
+                                .resizable()
+                                .frame(width: 350, height: 350)
+                            
+                            Spacer()
+                        }
+                        .allowsHitTesting(false)
+                        
+                        Spacer()
+                    }
+                )// overlay
             }
-            .ignoresSafeArea()
-            .tabViewStyle(PageTabViewStyle())
-            .navigationBarHidden(true)
-            .background(Color.main.ignoresSafeArea())
-            .navigationTitle("")
-        }
+        }// NavigationView
         .accentColor(.main)
-    }
-}
+    }// body
+}// OnboardingTabView
 
 struct OnboardingTabView_Previews: PreviewProvider {
-
+    
     @State static var isFirstLaunching = true
-
+    
     static var previews: some View {
         OnboardingTabView(isFirstLaunching: $isFirstLaunching)
     }

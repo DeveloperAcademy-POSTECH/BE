@@ -16,7 +16,7 @@ struct BEApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MenuView()
                 .onOpenURL { url in
                     print("Received URL: \(url)")
                     Auth.auth().canHandle(url) // <- just for information purposes
