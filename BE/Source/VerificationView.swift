@@ -6,27 +6,53 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct VerificationView: View {
-    let loginManager = LoginManager()
-    @State var phoneNumber: String = ""
-    @State var isComplete: Bool = false
-    @State var verificationCode: String = ""
+    @StateObject var vm = VerificationViewModel()
+    @State var isComplete = false
     
     var body: some View {
-        VStack {
-            VStack(spacing: 17) {
-                HStack {
-                    Text("전화번호를 입력해주세요.")
-                        .font(.title2.bold())
-                    Spacer()
+        NavigationView {
+            VStack {
+                VStack(spacing: 17) {
+                    HStack {
+                        Text("전화번호를 입력해주세요.")
+                            .font(.title2.bold())
+                        Spacer()
+                    }
+                    TextInputContainer(title: "전화번호", placeholder: "전화번호를 입력해주세요. (-없이 입력)", keyboardType: .numberPad, description: $vm.phoneNumber, isCompleted: $isComplete)
+                    
+                    if vm.isRequest {
+                        NavigationLink {
+                            VerificationCodeView()
+                                .onOpenURL { url in
+                                    print("Received URL: \(url)")
+                                    Auth.auth().canHandle(url) // <- just for information purposes
+                                }
+                        } label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 12)
+                                    .foregroundColor(.main)
+                                
+                                Text("다음")
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        .frame(height: 60)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationTitle("")
+
+                    }
                 }
-                TextInputContainer(title: "전화번호", placeholder: "전화번호를 입력해주세요. (-없이 입력)", keyboardType: .numberPad, description: $phoneNumber, isCompleted: $isComplete)
+                .padding(.horizontal, 20)
+                .padding(.top, 30)
+               Spacer()
             }
-            .padding(.horizontal, 20)
-            .padding(.top, 75)
-           Spacer()
         }
+        .accentColor(.main)
     }
 }
 

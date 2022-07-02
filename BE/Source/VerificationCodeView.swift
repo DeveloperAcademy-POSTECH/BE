@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct VerificationCodeView: View {
-    @State var verificationCode: String = ""
-    @State var isComplete: Bool = false
-    @State var timeString: String = "00:00"
-    @State var isRetryEnable: Bool = true
+    @StateObject var vm = VerificationCodeViewModel()
     
     var body: some View {
         VStack {
@@ -21,38 +18,59 @@ struct VerificationCodeView: View {
                         .font(.title2.bold())
                     Spacer()
                 }
-                TextInputContainer(title: "인증번호", placeholder: "인증번호를 입력해주세요.", keyboardType: .numberPad, description: $verificationCode, isCompleted: $isComplete)
+                TextInputContainer(title: "인증번호", placeholder: "인증번호를 입력해주세요.", keyboardType: .default, description: $vm.verificationCode, isCompleted: $vm.isComplete)
                 HStack {
                     Spacer()
                     Image(systemName: "clock.arrow.circlepath")
                         .foregroundColor(.main)
-                    Text(timeString)
+                    Text(vm.timeString)
                         .foregroundColor(.main)
-                    retryButton
+                    ActionContainer(text: "재전송")
                         .onTapGesture {
-                            
+                            vm.loginManager.resend()
+                        }
+                    ActionContainer(text: "완료")
+                        .onTapGesture {
+                            vm.verifyCode()
                         }
                 }
+                Button {
+                    //Dismiss
+                } label: {
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundColor(.main)
+                        .overlay(
+                            Text("시작하기")
+                                .font(.title2.bold())
+                                .foregroundColor(.white)
+                        )
+                }
+                .frame(height: 60)
             }
             .padding(.horizontal, 20)
-            .padding(.top,75)
+            .padding(.top, 30)
             Spacer()
         }
     }
 }
 
-extension VerificationCodeView {
-    var retryButton: some View {
+struct ActionContainer: View {
+    var text: String
+    var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
-                .foregroundColor(isRetryEnable ? .main : .background)
+                .foregroundColor(.main)
                 .frame(width: 84, height: 50)
-            Text("재전송")
+            Text(text)
                 .font(.body)
                 .fontWeight(.bold)
-                .foregroundColor(isRetryEnable ? .white : .gray)
+                .foregroundColor(.white)
         }
     }
+}
+
+extension VerificationCodeView {
+
 }
 
 struct VerificationCodeView_Previews: PreviewProvider {
