@@ -14,26 +14,30 @@ struct VerificationCodeView: View {
     @State var isRetryEnable: Bool = true
     
     var body: some View {
-        VStack(spacing: 16) {
-            HStack {
-                Text("인증번호를 입력해주세요.")
-                    .font(.title2.bold())
-                Spacer()
+        VStack {
+            VStack(spacing: 17) {
+                HStack {
+                    Text("인증번호를 입력해주세요.")
+                        .font(.title2.bold())
+                    Spacer()
+                }
+                TextInputContainer(title: "인증번호", placeholder: "인증번호를 입력해주세요.", keyboardType: .numberPad, description: $verificationCode, isCompleted: $isComplete)
+                HStack {
+                    Spacer()
+                    Image(systemName: "clock.arrow.circlepath")
+                        .foregroundColor(.main)
+                    Text(timeString)
+                        .foregroundColor(.main)
+                    retryButton
+                        .onTapGesture {
+                            
+                        }
+                }
             }
-            TextInputContainer(title: "인증번호", placeholder: "인증번호를 입력해주세요.", keyboardType: .numberPad, description: $verificationCode, isCompleted: $isComplete)
-            HStack {
-                Spacer()
-                Image(systemName: "clock.arrow.circlepath")
-                    .foregroundColor(.main)
-                Text(timeString)
-                    .foregroundColor(.main)
-                retryButton
-                    .onTapGesture {
-                        
-                    }
-            }
+            .padding(.horizontal, 20)
+            .padding(.top,75)
+            Spacer()
         }
-        .padding(.horizontal, 20)
     }
 }
 

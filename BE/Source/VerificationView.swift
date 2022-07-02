@@ -14,15 +14,19 @@ struct VerificationView: View {
     @State var verificationCode: String = ""
     
     var body: some View {
-        VStack(spacing: 16) {
-            HStack {
-                Text("전화번호를 입력해주세요.")
-                    .font(.title2.bold())
-                Spacer()
+        VStack {
+            VStack(spacing: 17) {
+                HStack {
+                    Text("전화번호를 입력해주세요.")
+                        .font(.title2.bold())
+                    Spacer()
+                }
+                TextInputContainer(title: "전화번호", placeholder: "전화번호를 입력해주세요. (-없이 입력)", keyboardType: .numberPad, description: $phoneNumber, isCompleted: $isComplete)
             }
-            TextInputContainer(title: "전화번호", placeholder: "전화번호를 입력해주세요. (-없이 입력)", keyboardType: .numberPad, description: $phoneNumber, isCompleted: $isComplete)
+            .padding(.horizontal, 20)
+            .padding(.top, 75)
+           Spacer()
         }
-        .padding(.horizontal, 20)
     }
 }
 
