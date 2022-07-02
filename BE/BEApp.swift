@@ -43,6 +43,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("\(#function)")
+        print(deviceToken)
         Auth.auth().setAPNSToken(deviceToken, type: .sandbox)
     }
     

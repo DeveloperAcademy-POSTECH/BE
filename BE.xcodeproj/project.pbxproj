@@ -27,7 +27,6 @@
 		7A63FFED2870E89500DCBCB9 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFEC2870E89500DCBCB9 /* OrderModel.swift */; };
 		7A63FFEF2870E97700DCBCB9 /* RestaurantInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFEE2870E97700DCBCB9 /* RestaurantInfo.swift */; };
 		7A63FFF12870E9BA00DCBCB9 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFF02870E9BA00DCBCB9 /* MenuModel.swift */; };
-		7A63FFF62870F59F00DCBCB9 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFF52870F59F00DCBCB9 /* Secret.swift */; };
 		7A63FFF82870F6D300DCBCB9 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFF72870F6D300DCBCB9 /* OrderViewModel.swift */; };
 		7AB4047C28706D7B0000E192 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4047B28706D7B0000E192 /* MenuView.swift */; };
 		7AB4047E287071D20000E192 /* MenuDetailLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4047D287071D20000E192 /* MenuDetailLink.swift */; };
@@ -41,6 +40,7 @@
 		C033B7E128707E3A00ABED90 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7E028707E3A00ABED90 /* CustomAlert.swift */; };
 		C033B7E32870840700ABED90 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7E22870840700ABED90 /* UIViewController.swift */; };
 		C07F9D0A2870BBD900F0777B /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F9D092870BBD900F0777B /* OrderManager.swift */; };
+		C07F9D0C2870FDDB00F0777B /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F9D0B2870FDDB00F0777B /* Secret.swift */; };
 		C089031D2870225800359264 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089031C2870225800359264 /* Constant.swift */; };
 		C08903202870228D00359264 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089031F2870228D00359264 /* LoginManager.swift */; };
 		C08903232870230C00359264 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08903222870230C00359264 /* String.swift */; };
@@ -78,7 +78,6 @@
 		7A63FFEC2870E89500DCBCB9 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		7A63FFEE2870E97700DCBCB9 /* RestaurantInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfo.swift; sourceTree = "<group>"; };
 		7A63FFF02870E9BA00DCBCB9 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
-		7A63FFF52870F59F00DCBCB9 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = "../../../../../../Downloads/Secrets 2/Secret.swift"; sourceTree = "<group>"; };
 		7A63FFF72870F6D300DCBCB9 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		7AB4047B28706D7B0000E192 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		7AB4047D287071D20000E192 /* MenuDetailLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailLink.swift; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		C033B7E028707E3A00ABED90 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		C033B7E22870840700ABED90 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		C07F9D092870BBD900F0777B /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
+		C07F9D0B2870FDDB00F0777B /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = ../../../../../Secrets/Secret.swift; sourceTree = "<group>"; };
 		C089031C2870225800359264 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C089031F2870228D00359264 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		C08903222870230C00359264 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		C07F9D062870B94800F0777B /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
-				7A63FFF52870F59F00DCBCB9 /* Secret.swift */,
+				C07F9D0B2870FDDB00F0777B /* Secret.swift */,
 			);
 			path = Secrets;
 			sourceTree = "<group>";
@@ -172,23 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				C089031B2870223000359264 /* Components */,
-				7A3DF79D28703CB800CCC81A /* OnboardingFirstView.swift */,
 				7A63FFE82870D0D700DCBCB9 /* OnboardingSecondView.swift */,
-				7A3DF7A1287044DC00CCC81A /* OnboardingLastView.swift */,
-				7A3DF79F28703EAA00CCC81A /* OnboardingTabView.swift */,
-				7AB4047B28706D7B0000E192 /* MenuView.swift */,
-				7AB4048128708C6D0000E192 /* MenuDetailView.swift */,
-				7A0AD46D2870A8C500F81DBE /* CartView.swift */,
-				7A0AD4792870C03100F81DBE /* OrderCompletionView.swift */,
 				7A63FFE22870C87A00DCBCB9 /* MyOrderView.swift */,
-				C089032A287038D500359264 /* VerificationView.swift */,
-				C033B7DC28706DFB00ABED90 /* VerificationViewModel.swift */,
-				C033B7DA287058D600ABED90 /* VerificationCodeView.swift */,
-				C033B7DE2870744700ABED90 /* VerificationCodeViewModel.swift */,
-				7A3DF79928702D0400CCC81A /* RegisterNicknameView.swift */,
-				7A3DF7A328704AFC00CCC81A /* RegisterSessionView.swift */,
 				C0E0B0CD287013BC0081DD1F /* ContentView.swift */,
-				7AB4047F287079310000E192 /* MenuViewModel.swift */,
 				7A63FFF72870F6D300DCBCB9 /* OrderViewModel.swift */,
 				C089032A287038D500359264 /* VerificationView.swift */,
 				C033B7DC28706DFB00ABED90 /* VerificationViewModel.swift */,
@@ -196,7 +182,7 @@
 				C033B7DE2870744700ABED90 /* VerificationCodeViewModel.swift */,
 				7A3DF79928702D0400CCC81A /* RegisterNicknameView.swift */,
 				7A3DF7A328704AFC00CCC81A /* RegisterSessionView.swift */,
-				7A3DF79D28703CB800CCC81A /* OnboardingView.swift */,
+				7A3DF79D28703CB800CCC81A /* OnboardingFirstView.swift */,
 				7A3DF79F28703EAA00CCC81A /* OnboardingTabView.swift */,
 				7A3DF7A1287044DC00CCC81A /* OnboardingLastView.swift */,
 				7AB4047B28706D7B0000E192 /* MenuView.swift */,
@@ -404,7 +390,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C07F9D0A2870BBD900F0777B /* OrderManager.swift in Sources */,
-				7A63FFF62870F59F00DCBCB9 /* Secret.swift in Sources */,
 				7A3DF7A428704AFC00CCC81A /* RegisterSessionView.swift in Sources */,
 				C08903252870231D00359264 /* DummyModel.swift in Sources */,
 				7AB4048228708C6D0000E192 /* MenuDetailView.swift in Sources */,
@@ -428,11 +413,11 @@
 				7A0AD47A2870C03100F81DBE /* OrderCompletionView.swift in Sources */,
 				7A63FFE32870C87A00DCBCB9 /* MyOrderView.swift in Sources */,
 				7A3DF79E28703CB800CCC81A /* OnboardingFirstView.swift in Sources */,
-				C08903272870233500359264 /* DummyView.swift in Sources */,
 				C033B7E128707E3A00ABED90 /* CustomAlert.swift in Sources */,
 				7A3DF798287029FD00CCC81A /* TextInputContainer.swift in Sources */,
 				7A0AD47A2870C03100F81DBE /* OrderCompletionView.swift in Sources */,
-				7A3DF79E28703CB800CCC81A /* OnboardingView.swift in Sources */,
+				C07F9D0C2870FDDB00F0777B /* Secret.swift in Sources */,
+				7A3DF79E28703CB800CCC81A /* OnboardingFirstView.swift in Sources */,
 				7A3DF79A28702D0500CCC81A /* RegisterNicknameView.swift in Sources */,
 				C08903202870228D00359264 /* LoginManager.swift in Sources */,
 				C033B7DD28706DFB00ABED90 /* VerificationViewModel.swift in Sources */,

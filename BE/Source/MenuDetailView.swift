@@ -120,11 +120,13 @@ struct MenuDetailView: View {
                     
                     Spacer()
                     
-                    LongBottomButton(
-                        title: "\(quantity)개 담기",
-                        backgroundColor: Color.container,
-                        action: dummyFunction
-                    )
+                    LongBottomButton(title: "\(quantity)개 담기", backgroundColor: Color.container) {
+                        for i in 0..<quantity {
+                            var string = menuModel.foodName
+//                            if pl
+                            OrderManager.shared.addMenu(menus: [])
+                        }
+                    }
                     
                 }// VStack
             }// ZStack

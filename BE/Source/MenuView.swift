@@ -9,6 +9,14 @@ import SwiftUI
 
 struct MenuView: View {
     @EnvironmentObject var orderViewModel: OrderViewModel
+
+    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    @State var isShowFullModal: Bool = true {
+        didSet {
+            isFirstLaunching = isShowFullModal
+        }
+    }
+
     
     var body: some View {
         NavigationView {
@@ -84,6 +92,9 @@ struct MenuView: View {
             }
             
         }// NavigationView
+        .fullScreenCover(isPresented: $isShowFullModal) {
+            OnboardingTabView(isFirstLaunching: $isShowFullModal)
+        }
     }// body
 }// MenuView
 
