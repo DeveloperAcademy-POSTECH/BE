@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    //OnBoarding
+    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    
     var body: some View {
         Text("Hello, world!")
             .padding()
+            .fullScreenCover(isPresented: $isFirstLaunching) {
+                OnboardingTabView(isFirstLaunching: $isFirstLaunching)
+            }
     }
 }
 
