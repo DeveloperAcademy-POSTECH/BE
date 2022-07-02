@@ -13,7 +13,7 @@ class LoginManager {
         PhoneAuthProvider.provider()
             .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
                 if let error = error {
-                    
+                    print("ERROR: \(error.localizedDescription)")
                 } else {
                     UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
                 }
