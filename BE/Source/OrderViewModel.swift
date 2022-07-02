@@ -14,7 +14,7 @@ class OrderViewModel: ObservableObject {
         print("Order View Model is working on")
     }
     
-    func getOrder(_ order: OrderModel) {
-        self.userModel.append(order)
-    }
+//    func getOrder(_ order: OrderModel) {
+//        self.userModel.append(order)
+//    }
 }
