@@ -8,9 +8,21 @@
 import Foundation
 import Alamofire
 
+enum Cham: String {
+    case original = "닭갈비덮밥"
+    case pepper = "고추장불고기덮밥"
+    case soySauce = "간장닭갈비덮밥"
+}
+
 class OrderManager: ObservableObject {
     static let shared = OrderManager()
     private init() {}
+    
+    private var selectedMenues: [String] = []
+    
+    func addMenu(menus: [String]) {
+        selectedMenues.append(contentsOf: menus)
+    }
     
     func requestPickUpUsers(completion: @escaping ([User], Error?) -> Void) {
         AF.request(Secret.orderUrl)
@@ -42,14 +54,21 @@ class OrderManager: ObservableObject {
         guard let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") else { return }
         guard let userName = UserDefaults.standard.string(forKey: "userName") else { return }
         guard let userSession = UserDefaults.standard.string(forKey: "userSession") else {return}
+        guard selectedMenues.isEmpty else { return }
         let user = "\(userSession == "오후" ? "A" : "M").\(userName)"
-        let oidString = UUID().uuidString
-        let parameters: [[String: String]] = [[
-            "oid" : oidString,
-            "user" : user,
-            "menu" : menu,
-            "phoneNumber" : phoneNumber
-        ]]
+        
+        var parameters: [[String: String]] = [[:]]
+        
+        for menu in selectedMenues {
+            let oidString = UUID().uuidString
+            let parameter = [
+                "oid" : oidString,
+                "user" : user,
+                "menu" : menu,
+                "phoneNumber" : phoneNumber
+            ]
+            parameters.append(parameter)
+        }
         
         let url = URL(string: Secret.orderUrl)
         var request = URLRequest(url: url!)
