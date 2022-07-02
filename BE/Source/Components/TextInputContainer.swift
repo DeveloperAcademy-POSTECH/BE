@@ -18,7 +18,7 @@ struct TextInputContainer: View {
     @Binding var isCompleted: Bool
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack(alignment: .leading, spacing: 7) {
             // 닉네임, 전화번호 등 타이틀을 설정합니다.
             Text(title)
                 .foregroundColor(Color.main)
@@ -30,7 +30,7 @@ struct TextInputContainer: View {
                 .font(.title2)
                 .placeholder(when: description.isEmpty) {
                     Text(placeholder)
-                        .foregroundColor(Color.background)
+                        .foregroundColor(.gray)
                 }
                 .onSubmit {
                     self.isCompleted = true
@@ -40,6 +40,7 @@ struct TextInputContainer: View {
         .padding(.leading, 14)
         .padding(.vertical, 15)
         .background(Color.background)
+        .frame(height: 82)
         .cornerRadius(12)
     }// body
 }// TextInputContainer

@@ -35,12 +35,13 @@ struct RegisterNicknameView: View {
 
                 Spacer()
 
-                NavigationLink(destination: RegisterSessionView(isFirstLaunching: $isFirstLaunching), isActive: $isCompleted) {
+                NavigationLink(destination: RegisterSessionView(isFirstLaunching: $isFirstLaunching).navigationTitle(""), isActive: $isCompleted) {
                     EmptyView()
                 }
                 .navigationTitle("")
             }
             .padding(.horizontal, 20)
+            .navigationTitle("")
     }// body
 }// RegisterNicknameView
 

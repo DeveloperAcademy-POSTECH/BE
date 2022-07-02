@@ -6,45 +6,56 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct VerificationView: View {
-    let loginManager = LoginManager()
-    @State var phoneNumber: String = ""
-    @State var verificationCode: String = ""
+    @Binding var isFirstLaunching: Bool
+    @StateObject var vm = VerificationViewModel()
+    @State var isComplete = false
+    @State var showCodeView: Bool = false
     
     var body: some View {
         VStack {
-            HStack {
-                TextField("Enter Your PhoneNumber", text: $phoneNumber)
-                    .padding()
-                    .background(.gray.opacity(0.2))
-                    .cornerRadius(20)
-                Button("전송") {
-                    loginManager.verify(phoneNumber: phoneNumber)
+            VStack(spacing: 17) {
+                HStack {
+                    Text("전화번호를 입력해주세요.")
+                        .font(.title2.bold())
+                    Spacer()
                 }
+                TextInputContainer(title: "전화번호", placeholder: "전화번호를 입력해주세요. (-없이 입력)", keyboardType: .numberPad, description: $vm.phoneNumber, isCompleted: $isComplete)
             }
-            HStack {
-                TextField("Enter Your code", text: $verificationCode)
-                    .padding()
-                    .background(.gray.opacity(0.2))
-                    .cornerRadius(20)
-                Button("인증") {
-                    loginManager.loginWith(verificationCode: verificationCode) { error in
-                        if let error = error {
-                            print("ERROR: 로그인 에러 \(error.localizedDescription)")
-                        } else {
-                            print("DEBUG: 로그인 성공")
+            
+            Spacer()
+            
+            if vm.isValidNumber {
+                NavigationLink(isActive: $vm.isValidNumber) {
+                    VerificationCodeView(isFirstLaunching: $isFirstLaunching)
+                        .onOpenURL { url in
+                            print("Received URL: \(url)")
+                            Auth.auth().canHandle(url) // <- just for information purposes
                         }
+                        .navigationTitle("")
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundColor(.main)
+                        
+                        Text("다음")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
                     }
                 }
+                .frame(height: 60)
             }
         }
-        .padding()
+        .padding(.horizontal, 20)
+//        .padding(.top, 30)
     }
 }
 
 struct VerificationView_Previews: PreviewProvider {
     static var previews: some View {
-        VerificationView()
+        VerificationView(isFirstLaunching: .constant(true))
     }
 }
