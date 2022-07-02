@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var orderManager = OrderManager.shared
     // OnBoarding
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
     

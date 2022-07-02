@@ -34,6 +34,8 @@
 		C033B7DF2870744700ABED90 /* VerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7DE2870744700ABED90 /* VerificationCodeViewModel.swift */; };
 		C033B7E128707E3A00ABED90 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7E028707E3A00ABED90 /* CustomAlert.swift */; };
 		C033B7E32870840700ABED90 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7E22870840700ABED90 /* UIViewController.swift */; };
+		C07F9D082870B98E00F0777B /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F9D072870B98E00F0777B /* Secret.swift */; };
+		C07F9D0A2870BBD900F0777B /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F9D092870BBD900F0777B /* OrderManager.swift */; };
 		C089031D2870225800359264 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089031C2870225800359264 /* Constant.swift */; };
 		C08903202870228D00359264 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089031F2870228D00359264 /* LoginManager.swift */; };
 		C08903232870230C00359264 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08903222870230C00359264 /* String.swift */; };
@@ -78,6 +80,8 @@
 		C033B7DE2870744700ABED90 /* VerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewModel.swift; sourceTree = "<group>"; };
 		C033B7E028707E3A00ABED90 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		C033B7E22870840700ABED90 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		C07F9D072870B98E00F0777B /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		C07F9D092870BBD900F0777B /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 		C089031C2870225800359264 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C089031F2870228D00359264 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		C08903222870230C00359264 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -168,6 +172,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C07F9D062870B94800F0777B /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				C07F9D072870B98E00F0777B /* Secret.swift */,
+			);
+			path = Secrets;
+			sourceTree = "<group>";
+		};
 		C0890318287021F200359264 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				C089031F2870228D00359264 /* LoginManager.swift */,
+				C07F9D092870BBD900F0777B /* OrderManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -255,6 +268,7 @@
 		C0E0B0CA287013BB0081DD1F /* BE */ = {
 			isa = PBXGroup;
 			children = (
+				C07F9D062870B94800F0777B /* Secrets */,
 				C089032928702AD200359264 /* Info.plist */,
 				C089032828702AC200359264 /* BE.entitlements */,
 				C0E0B0D9287016F40081DD1F /* GoogleService-Info.plist */,
@@ -392,7 +406,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C07F9D0A2870BBD900F0777B /* OrderManager.swift in Sources */,
 				7A3DF7A428704AFC00CCC81A /* RegisterSessionView.swift in Sources */,
+				C07F9D082870B98E00F0777B /* Secret.swift in Sources */,
 				C08903252870231D00359264 /* DummyModel.swift in Sources */,
 				7AB4048228708C6D0000E192 /* MenuDetailView.swift in Sources */,
 				7A3DF7A028703EAA00CCC81A /* OnboardingTabView.swift in Sources */,

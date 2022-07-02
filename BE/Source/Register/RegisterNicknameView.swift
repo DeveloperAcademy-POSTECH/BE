@@ -12,7 +12,7 @@ struct RegisterNicknameView: View {
     let title: String = "닉네임"
     let placeholder: String = "닉네임을 입력해주세요"
     @Binding var isFirstLaunching: Bool
-    @State var descripton: String = ""
+    @State var userName: String = ""
     @State var isCompleted: Bool = false
     
     var body: some View {
@@ -29,7 +29,7 @@ struct RegisterNicknameView: View {
                     title: title,
                     placeholder: placeholder,
                     keyboardType: .default,
-                    description: $descripton,
+                    description: $userName,
                     isCompleted: $isCompleted
                 )
 
@@ -42,7 +42,15 @@ struct RegisterNicknameView: View {
             }
             .padding(.horizontal, 20)
             .navigationTitle("")
+            .onDisappear {
+                setUserName()
+            }
     }// body
+    
+    //MARK: - Helpers
+    func setUserName() {
+        UserDefaults.standard.set(userName, forKey: "userName")
+    }
 }// RegisterNicknameView
 
 struct RegisterNicknameView_Previews: PreviewProvider {
