@@ -25,7 +25,6 @@ struct RegisterNicknameView: View {
                     
                     Spacer()
                 }
-                .padding(.horizontal, 20)
                 
                 TextInputContainer(
                     title: title,
@@ -37,11 +36,11 @@ struct RegisterNicknameView: View {
 
                 Spacer()
 
-                NavigationLink(destination: ContentView(), isActive: $isCompleted) {
+                NavigationLink(destination: RegisterSessionView(), isActive: $isCompleted) {
                     EmptyView()
                 }
             }
-
+            .padding(.horizontal, 20)
         }// NavigationView
     }// body
 }// RegisterNicknameView
