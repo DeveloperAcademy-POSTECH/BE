@@ -11,14 +11,15 @@ struct LongBottomButton: View {
     
     let title: String
     let backgroundColor: Color
+    let action: () -> ()
     
     var body: some View {
-        Button(action: {}) {
+        Button(action: action) {
             Text(title)
-                .frame(width: 150)
-                .padding(.horizontal, 100)
+                .frame(width: 300)
+                .padding(.horizontal, 20)
                 .padding(.vertical, 20)
-                .foregroundColor(Color.background)
+                .foregroundColor(backgroundColor == Color.background ? Color.container : Color.background)
                 .background(backgroundColor)
                 .cornerRadius(10)
         }
@@ -28,7 +29,12 @@ struct LongBottomButton: View {
 }
 
 struct LongBottomButton_Previews: PreviewProvider {
+    
     static var previews: some View {
-        LongBottomButton(title: "Hello", backgroundColor: Color.main)
+        LongBottomButton(
+            title: "Hello",
+            backgroundColor: Color.main,
+            action: {}
+        )
     }
 }

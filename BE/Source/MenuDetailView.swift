@@ -17,6 +17,8 @@ struct MenuDetailView: View {
     let title1: String = "기본"
     let title2: String = "곱빼기"
     
+    func dummyFunction() { }
+    
     var body: some View {
         VStack {
             // 상단 툴바
@@ -85,7 +87,8 @@ struct MenuDetailView: View {
                     
                     LongBottomButton(
                         title: "\(quantity)개 담기",
-                        backgroundColor: Color.container
+                        backgroundColor: Color.container,
+                        action: dummyFunction
                     )
                     
                 }// VStack

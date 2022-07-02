@@ -13,6 +13,7 @@
 		7A0AD4742870AC8200F81DBE /* MenuReviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0AD4732870AC8200F81DBE /* MenuReviewContainer.swift */; };
 		7A0AD4762870B1E300F81DBE /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0AD4752870B1E300F81DBE /* CustomStepper.swift */; };
 		7A0AD4782870B48200F81DBE /* LongBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0AD4772870B48200F81DBE /* LongBottomButton.swift */; };
+		7A0AD47A2870C03100F81DBE /* OrderCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0AD4792870C03100F81DBE /* OrderCompletionView.swift */; };
 		7A3DF798287029FD00CCC81A /* TextInputContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DF797287029FD00CCC81A /* TextInputContainer.swift */; };
 		7A3DF79A28702D0500CCC81A /* RegisterNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DF79928702D0400CCC81A /* RegisterNicknameView.swift */; };
 		7A3DF79C2870308100CCC81A /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DF79B2870308100CCC81A /* View.swift */; };
@@ -50,6 +51,7 @@
 		7A0AD4732870AC8200F81DBE /* MenuReviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuReviewContainer.swift; sourceTree = "<group>"; };
 		7A0AD4752870B1E300F81DBE /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 		7A0AD4772870B48200F81DBE /* LongBottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongBottomButton.swift; sourceTree = "<group>"; };
+		7A0AD4792870C03100F81DBE /* OrderCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompletionView.swift; sourceTree = "<group>"; };
 		7A3DF797287029FD00CCC81A /* TextInputContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputContainer.swift; sourceTree = "<group>"; };
 		7A3DF79928702D0400CCC81A /* RegisterNicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameView.swift; sourceTree = "<group>"; };
 		7A3DF79B2870308100CCC81A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				7AB4047F287079310000E192 /* MenuViewModel.swift */,
 				7AB4048128708C6D0000E192 /* MenuDetailView.swift */,
 				7A0AD46D2870A8C500F81DBE /* CartView.swift */,
+				7A0AD4792870C03100F81DBE /* OrderCompletionView.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				7A0AD4782870B48200F81DBE /* LongBottomButton.swift in Sources */,
 				C08903272870233500359264 /* DummyView.swift in Sources */,
 				7A3DF798287029FD00CCC81A /* TextInputContainer.swift in Sources */,
+				7A0AD47A2870C03100F81DBE /* OrderCompletionView.swift in Sources */,
 				7A3DF79E28703CB800CCC81A /* OnboardingView.swift in Sources */,
 				7A3DF79A28702D0500CCC81A /* RegisterNicknameView.swift in Sources */,
 				C08903202870228D00359264 /* LoginManager.swift in Sources */,
