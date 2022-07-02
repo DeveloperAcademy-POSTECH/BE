@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A3DF798287029FD00CCC81A /* TextInputContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DF797287029FD00CCC81A /* TextInputContainer.swift */; };
+		7A3DF79A28702D0500CCC81A /* RegisterNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DF79928702D0400CCC81A /* RegisterNicknameView.swift */; };
+		7A3DF79C2870308100CCC81A /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DF79B2870308100CCC81A /* View.swift */; };
 		C089031D2870225800359264 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089031C2870225800359264 /* Constant.swift */; };
 		C08903202870228D00359264 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089031F2870228D00359264 /* LoginManager.swift */; };
 		C08903232870230C00359264 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08903222870230C00359264 /* String.swift */; };
@@ -23,6 +26,9 @@
 /* Begin PBXFileReference section */
 		6AC41999BD864A6334FDBEAA /* Pods-BE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BE.release.xcconfig"; path = "Target Support Files/Pods-BE/Pods-BE.release.xcconfig"; sourceTree = "<group>"; };
 		7183E9D455D84C6700905EBA /* Pods_BE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A3DF797287029FD00CCC81A /* TextInputContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputContainer.swift; sourceTree = "<group>"; };
+		7A3DF79928702D0400CCC81A /* RegisterNicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameView.swift; sourceTree = "<group>"; };
+		7A3DF79B2870308100CCC81A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		C089031C2870225800359264 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C089031F2870228D00359264 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		C08903222870230C00359264 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -79,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				C08903222870230C00359264 /* String.swift */,
+				7A3DF79B2870308100CCC81A /* View.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -88,6 +95,7 @@
 			children = (
 				C089031B2870223000359264 /* Components */,
 				C0E0B0CD287013BC0081DD1F /* ContentView.swift */,
+				7A3DF79928702D0400CCC81A /* RegisterNicknameView.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -96,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				C08903262870233500359264 /* DummyView.swift */,
+				7A3DF797287029FD00CCC81A /* TextInputContainer.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -274,7 +283,10 @@
 			files = (
 				C08903252870231D00359264 /* DummyModel.swift in Sources */,
 				C0E0B0CE287013BC0081DD1F /* ContentView.swift in Sources */,
+				7A3DF79C2870308100CCC81A /* View.swift in Sources */,
 				C08903272870233500359264 /* DummyView.swift in Sources */,
+				7A3DF798287029FD00CCC81A /* TextInputContainer.swift in Sources */,
+				7A3DF79A28702D0500CCC81A /* RegisterNicknameView.swift in Sources */,
 				C08903202870228D00359264 /* LoginManager.swift in Sources */,
 				C08903232870230C00359264 /* String.swift in Sources */,
 				C0E0B0CC287013BC0081DD1F /* BEApp.swift in Sources */,
