@@ -52,7 +52,6 @@ struct RegisterSessionView: View {
                 .frame(height: 60)
         }//VStack
         .padding(.horizontal, 20)
-        .padding(.top, 30)
     }// body
 }// RegisterSessionView
 
@@ -75,7 +74,7 @@ fileprivate struct SessionSelectionButton: View {
         }) {
             ZStack {
                 RoundedRectangle(cornerRadius: 12)
-                    .foregroundColor(.background)
+                    .foregroundColor(selectedSession == sessionName ? Color.main : Color.background)
                     .overlay(
                         Text(sessionName)
                             .font(.headline)

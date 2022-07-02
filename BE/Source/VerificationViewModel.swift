@@ -13,7 +13,7 @@ class VerificationViewModel: ObservableObject {
     @Published var phoneNumber: String = ""
     @Published var verificationCode: String = ""
     @Published var isComplete: Bool = false
-    @Published var isRequest: Bool = false
+    @Published var isValidNumber: Bool = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -23,7 +23,8 @@ class VerificationViewModel: ObservableObject {
                 print("DEBUG: inputValue - \(inputValue)")
                 guard self.phoneNumber.count == 11 else { return }
                 self.requestVerificationCode()
-                self.isRequest = true
+                self.isValidNumber = true
+                print(self.isValidNumber)
             }
             .store(in: &cancellables)
     }

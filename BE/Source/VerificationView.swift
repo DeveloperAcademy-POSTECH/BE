@@ -9,55 +9,53 @@ import SwiftUI
 import FirebaseAuth
 
 struct VerificationView: View {
+    @Binding var isFirstLaunching: Bool
     @StateObject var vm = VerificationViewModel()
     @State var isComplete = false
+    @State var showCodeView: Bool = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                VStack(spacing: 17) {
-                    HStack {
-                        Text("전화번호를 입력해주세요.")
-                            .font(.title2.bold())
-                        Spacer()
-                    }
-                    TextInputContainer(title: "전화번호", placeholder: "전화번호를 입력해주세요. (-없이 입력)", keyboardType: .numberPad, description: $vm.phoneNumber, isCompleted: $isComplete)
-                    
-                    if vm.isRequest {
-                        NavigationLink {
-                            VerificationCodeView()
-                                .onOpenURL { url in
-                                    print("Received URL: \(url)")
-                                    Auth.auth().canHandle(url) // <- just for information purposes
-                                }
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 12)
-                                    .foregroundColor(.main)
-                                
-                                Text("다음")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                            }
+        VStack {
+            VStack(spacing: 17) {
+                HStack {
+                    Text("전화번호를 입력해주세요.")
+                        .font(.title2.bold())
+                    Spacer()
+                }
+                TextInputContainer(title: "전화번호", placeholder: "전화번호를 입력해주세요. (-없이 입력)", keyboardType: .numberPad, description: $vm.phoneNumber, isCompleted: $isComplete)
+            }
+            
+            Spacer()
+            
+            if vm.isValidNumber {
+                NavigationLink(isActive: $vm.isValidNumber) {
+                    VerificationCodeView(isFirstLaunching: $isFirstLaunching)
+                        .onOpenURL { url in
+                            print("Received URL: \(url)")
+                            Auth.auth().canHandle(url) // <- just for information purposes
                         }
-                        .frame(height: 60)
-                        .navigationBarTitleDisplayMode(.inline)
                         .navigationTitle("")
-
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundColor(.main)
+                        
+                        Text("다음")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
                     }
                 }
-                .padding(.horizontal, 20)
-                .padding(.top, 30)
-               Spacer()
+                .frame(height: 60)
             }
         }
-        .accentColor(.main)
+        .padding(.horizontal, 20)
+//        .padding(.top, 30)
     }
 }
 
 struct VerificationView_Previews: PreviewProvider {
     static var previews: some View {
-        VerificationView()
+        VerificationView(isFirstLaunching: .constant(true))
     }
 }

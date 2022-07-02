@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct OnboardingTabView: View {
-    
     @Binding var isFirstLaunching: Bool
     
     var body: some View {
@@ -19,13 +18,12 @@ struct OnboardingTabView: View {
                 OnboardingLastView(isFirstLaunching: $isFirstLaunching)
             }
             .ignoresSafeArea()
-        .tabViewStyle(PageTabViewStyle())
-        .navigationBarHidden(true)
-        .background(Color.main.ignoresSafeArea())
+            .tabViewStyle(PageTabViewStyle())
+            .navigationBarHidden(true)
+            .background(Color.main.ignoresSafeArea())
+            .navigationTitle("")
         }
         .accentColor(.main)
-      
-       
     }
 }
 

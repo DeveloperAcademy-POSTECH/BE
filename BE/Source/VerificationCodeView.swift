@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct VerificationCodeView: View {
+    @Binding var isFirstLaunching: Bool
     @StateObject var vm = VerificationCodeViewModel()
     
     var body: some View {
@@ -34,21 +35,24 @@ struct VerificationCodeView: View {
                             vm.verifyCode()
                         }
                 }
-                Button {
-                    //Dismiss
-                } label: {
-                    RoundedRectangle(cornerRadius: 12)
-                        .foregroundColor(.main)
-                        .overlay(
-                            Text("시작하기")
-                                .font(.title2.bold())
-                                .foregroundColor(.white)
-                        )
-                }
+                if vm.isValidCode ?? false {
+                    Button {
+                        //Dismiss
+                        isFirstLaunching = false
+                    } label: {
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundColor(.main)
+                            .overlay(
+                                Text("시작하기")
+                                    .font(.title2.bold())
+                                    .foregroundColor(.white)
+                            )
+                    }
                 .frame(height: 60)
+                }
             }
             .padding(.horizontal, 20)
-            .padding(.top, 30)
+//            .padding(.top, 30)
             Spacer()
         }
     }
@@ -75,6 +79,6 @@ extension VerificationCodeView {
 
 struct VerificationCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        VerificationCodeView()
+        VerificationCodeView(isFirstLaunching: .constant(true))
     }
 }

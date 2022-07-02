@@ -21,7 +21,6 @@ struct OnboardingFirstView: View {
                 
                 Spacer()
             }// HStack
-            
             HStack {
                 Text("A.Zit")
                     .foregroundColor(.white)
@@ -33,15 +32,11 @@ struct OnboardingFirstView: View {
                 
                 Spacer()
             }// HStack
-            
             Text("간편한 점심식사 서비스를 제공합니다.")
                 .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
-           
-            
             Spacer()
-            
         }// VStack
         .padding(.top, 170)
         .padding(.horizontal, 20)
@@ -63,18 +58,13 @@ struct OnboardingSecondView: View {
                 
                 Spacer()
             }// HStack
-            
-     
             Text("매일 오후 1시에\n배달비 무료 1인 도시락을\nC5에 제공합니다.")
                 .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
                 .multilineTextAlignment(.leading)
                 .lineSpacing(8)
-    
-
             Spacer()
-            
         }// VStack
         .padding(.top, 170)
         .padding(.horizontal, 20)
