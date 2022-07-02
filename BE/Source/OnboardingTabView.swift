@@ -12,12 +12,15 @@ struct OnboardingTabView: View {
     @Binding var isFirstLaunching: Bool
     
     var body: some View {
-        TabView {
-            OnboardingFirstView()
-            OnboardingLastView(isFirstLaunching: $isFirstLaunching)
-        }
-        .ignoresSafeArea()
+        NavigationView {
+            TabView {
+                OnboardingFirstView()
+                OnboardingLastView(isFirstLaunching: $isFirstLaunching)
+            }
+            .ignoresSafeArea()
         .tabViewStyle(PageTabViewStyle())
+        }
+        .accentColor(.main)
     }
 }
 
