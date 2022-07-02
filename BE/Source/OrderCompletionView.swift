@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct OrderCompletionView: View {
     var body: some View {
@@ -34,7 +35,15 @@ struct OrderCompletionView: View {
                         .foregroundColor(.black)
                 }
                 
-                LongBottomButton(title: "신협은행 132-024-256874 이명자", backgroundColor: Color.container, action: { })
+                LongBottomButton(
+                    title: "신협은행 132-024-256874 이명자",
+                    backgroundColor: Color.container,
+                    action: {
+                        UIPasteboard.general.setValue(
+                            "132-024-256874",
+                            forPasteboardType: UTType.plainText.identifier
+                        )
+                    })
                 
                 HStack {
                     Image(systemName: "note.text")
