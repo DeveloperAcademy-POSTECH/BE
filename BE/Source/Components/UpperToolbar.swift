@@ -31,13 +31,14 @@ struct UpperToolbar: View {
             
             Spacer()
             
-            Image(systemName: "person.fill")
-                .font(.title3)
-                .foregroundColor(.white)
-
+            NavigationLink(destination: MyOrderView().navigationTitle("")) {
+                Image(systemName: "person.fill")
+                    .font(.title3)
+                    .foregroundColor(.white)
+            }
         }
-    }
-}
+    }// body
+}// UpperToolbar
 
 struct CurrentTimeContainer_Previews: PreviewProvider {
     static var previews: some View {
