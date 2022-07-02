@@ -9,6 +9,15 @@ import SwiftUI
 
 struct OnboardingLastView: View {
     @Binding var isFirstLaunching: Bool
+    let text = """
+    오후 1시 전 어느 때나
+    메뉴를 선택하고 계좌에 입금하면
+    도시락을 받을 수 있습니다.
+    
+    1층에서 배달을 받을 사람은
+    앱에서 랜덤으로 정해져
+    문자를 받게 됩니다.
+    """
     
     var body: some View {
         ZStack {
@@ -16,7 +25,7 @@ struct OnboardingLastView: View {
             VStack {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
-                        Text("오후 1시 전 어느 때나\n메뉴를 선택하고 계좌에 입금하면\n도시락을 받을 수 있습니다.\n\n1층에서 배달을 받을 사람은\n앱에서 랜덤으로 정해져\n문자를 받게 됩니다.")
+                        Text(text)
                             .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)

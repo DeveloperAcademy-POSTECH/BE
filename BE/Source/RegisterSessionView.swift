@@ -15,7 +15,7 @@ struct RegisterSessionView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("오전/오후반이신가요?")
+                Text("오전/오후 세션 중 골라주세요")
                     .font(.system(size: 22, weight: .bold))
                     .multilineTextAlignment(.leading)
                 
@@ -25,12 +25,12 @@ struct RegisterSessionView: View {
             // Session Button Container
             HStack(spacing: 10) {
                 SessionSelectionButton(
-                    sessionName: "오전반",
+                    sessionName: "오전",
                     selectedSession: $selectedSession
                 )
                 
                 SessionSelectionButton(
-                    sessionName: "오후반",
+                    sessionName: "오후",
                     selectedSession: $selectedSession
                 )
             }
