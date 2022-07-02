@@ -7,6 +7,7 @@
 
 import FirebaseCore
 import SwiftUI
+import UserNotifications
 
 @main
 struct BEApp: App {
@@ -23,7 +24,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
-
+      
+      UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert]) { granted, error in
+         
+      }
+      
+    application.registerForRemoteNotifications()
     return true
   }
 }
