@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct OnboardingTabView: View {
-    
     @Binding var isFirstLaunching: Bool
     
     var body: some View {
         NavigationView {
             TabView {
                 OnboardingFirstView()
+                OnboardingSecondView()
                 OnboardingLastView(isFirstLaunching: $isFirstLaunching)
             }
             .ignoresSafeArea()
-        .tabViewStyle(PageTabViewStyle())
+            .tabViewStyle(PageTabViewStyle())
+            .navigationBarHidden(true)
+            .background(Color.main.ignoresSafeArea())
+            .navigationTitle("")
         }
         .accentColor(.main)
     }

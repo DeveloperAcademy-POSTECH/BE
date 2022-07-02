@@ -13,41 +13,45 @@ struct RegisterSessionView: View {
     @State var selectedSession: String = ""
     
     var body: some View {
-            VStack {
-                HStack {
-                    Text("오전/오후반이신가요?")
-                        .font(.system(size: 22, weight: .bold))
-                        .multilineTextAlignment(.leading)
-                    
-                    Spacer()
-                }
-
-                // Session Button Container
-                HStack {
-                    SessionSelectionButton(
-                        sessionName: "오전반",
-                        selectedSession: $selectedSession
-                    )
-                    
-                    SessionSelectionButton(
-                        sessionName: "오후반",
-                        selectedSession: $selectedSession
-                    )
-                }
-
+        VStack {
+            HStack {
+                Text("오전/오후 세션 중 골라주세요")
+                    .font(.system(size: 22, weight: .bold))
+                    .multilineTextAlignment(.leading)
+                
                 Spacer()
-
-                NavigationLink(
-                    destination: VerificationView().navigationTitle(""),
-                    isActive: $isCompleted) {
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(.blue)
+            }
+            
+            // Session Button Container
+            HStack(spacing: 10) {
+                SessionSelectionButton(
+                    sessionName: "오전",
+                    selectedSession: $selectedSession
+                )
+                
+                SessionSelectionButton(
+                    sessionName: "오후",
+                    selectedSession: $selectedSession
+                )
+            }
+            .frame(height: 82)
+            
+            Spacer()
+            
+            NavigationLink(
+                destination: VerificationView(isFirstLaunching: $isFirstLaunching).navigationTitle(""),
+                isActive: $isCompleted) {
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundColor(.main)
+                        .overlay(
+                            Text("다음")
+                                .font(.title2.bold())
+                                .foregroundColor(.white)
+                        )
                 }
-                    .frame(height: 60)
-                
-                
-            }//VStack
-            .padding(.horizontal, 20)
+                .frame(height: 60)
+        }//VStack
+        .padding(.horizontal, 20)
     }// body
 }// RegisterSessionView
 
@@ -68,14 +72,15 @@ fileprivate struct SessionSelectionButton: View {
         Button(action: {
             selectedSession = sessionName
         }) {
-            Text(sessionName)
-                .font(.headline)
-                .foregroundColor(selectedSession == sessionName ? Color.background : Color.container)
-                .padding(.vertical, 27)
-                .padding(.horizontal, 56)
-                .background(selectedSession == sessionName ? Color.main : Color.background)
-                .cornerRadius(12)
+            ZStack {
+                RoundedRectangle(cornerRadius: 12)
+                    .foregroundColor(selectedSession == sessionName ? Color.main : Color.background)
+                    .overlay(
+                        Text(sessionName)
+                            .font(.headline)
+                            .foregroundColor(selectedSession == sessionName ? Color.background : Color.container)
+                    )
+            }
         }
-
     }// body
 }// SessionSelectionButton
