@@ -28,7 +28,7 @@ struct VerificationCodeView: View {
                         .foregroundColor(.main)
                     ActionContainer(text: "재전송")
                         .onTapGesture {
-                            vm.loginManager.resend()
+                            vm.resendCode()
                         }
                     ActionContainer(text: "완료")
                         .onTapGesture {

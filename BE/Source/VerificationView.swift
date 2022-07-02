@@ -24,6 +24,15 @@ struct VerificationView: View {
                 }
                 TextInputContainer(title: "전화번호", placeholder: "전화번호를 입력해주세요. (-없이 입력)", keyboardType: .numberPad, description: $vm.phoneNumber, isCompleted: $isComplete)
             }
+            HStack {
+                if !vm.isValidNumber && !vm.phoneNumber.isEmpty{
+                    Text("유효하지 않은 전화번호 입니다.")
+                        .font(.footnote)
+                }
+               
+                Spacer()
+            }
+            .padding(.leading)
             
             Spacer()
             

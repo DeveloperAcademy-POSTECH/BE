@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class VerificationCodeViewModel: ObservableObject {
-    let loginManager = LoginManager()
+    var loginManager = LoginManager.shared
     @Published var verificationCode: String = ""
     @Published var isComplete: Bool = false
     @Published var isRetryEnable: Bool = true
@@ -30,6 +30,10 @@ class VerificationCodeViewModel: ObservableObject {
 //                }
 //            }
 //            .store(in: &cancellables)
+    }
+    
+    func resendCode() {
+        loginManager.resend()
     }
     
     func verifyCode() {

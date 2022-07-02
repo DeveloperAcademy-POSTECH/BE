@@ -1,7 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/swift,swiftpackagemanager,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,swiftpackagemanager,macos
 
-# Secrets/
+Secrets/
 
 ### macOS ###
 # General
