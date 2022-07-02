@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct RegisterSessionView: View {
-    
+    @Binding var isFirstLaunching: Bool
     @State var isCompleted: Bool = false
     @State var selectedSession: String = ""
     
     var body: some View {
-        NavigationView {
             VStack {
                 HStack {
                     Text("오전/오후반이신가요?")
@@ -38,19 +37,23 @@ struct RegisterSessionView: View {
 
                 Spacer()
 
-                NavigationLink(destination: ContentView(), isActive: $isCompleted) {
-                    EmptyView()
+                NavigationLink(
+                    destination: VerificationView().navigationTitle(""),
+                    isActive: $isCompleted) {
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(.blue)
                 }
+                    .frame(height: 60)
+                
                 
             }//VStack
             .padding(.horizontal, 20)
-        }// NavigationView
     }// body
 }// RegisterSessionView
 
 struct RegisterSessionView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterSessionView()
+        RegisterSessionView(isFirstLaunching: .constant(true))
     }
 }
 
