@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     @EnvironmentObject var orderViewModel: OrderViewModel
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -51,7 +51,22 @@ struct MenuView: View {
                             }
                         }
                         
+                        if (!orderViewModel.orders.isEmpty) {
+                            HStack {
+                                Spacer()
+                                
+                                NavigationLink(
+                                    destination:
+                                        CartView()
+                                        .navigationBarHidden(true)
+                                ) {
+                                    CartButton(quantity: orderViewModel.orders.count)
+                                }
+                            }
+                        }
+                        
                         Spacer()
+                        
                     }
                     .padding(.horizontal, 22)
                     
@@ -63,8 +78,8 @@ struct MenuView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     UpperToolbar()
-                    .padding(.top, 21)
-                    .padding(.bottom, 44)
+                        .padding(.top, 21)
+                        .padding(.bottom, 44)
                 }
             }
             
@@ -75,5 +90,36 @@ struct MenuView: View {
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView()
+    }
+}
+
+struct CartButton: View {
+    
+    let quantity: Int
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundColor(.main)
+                .frame(maxWidth: 65, maxHeight: 65)
+            
+            Image(systemName: "cart.fill")
+                .foregroundColor(.background)
+                .font(.largeTitle)
+            
+            ZStack {
+                Circle()
+                    .foregroundColor(.background)
+                    .frame(maxWidth: 25, maxHeight: 25)
+                    .padding(.leading, 30)
+                    .padding(.bottom, 25)
+
+                Text("\(quantity)")
+                    .foregroundColor(.main)
+                    .padding(.leading, 30)
+                    .padding(.bottom, 25)
+
+            }
+        }
     }
 }
