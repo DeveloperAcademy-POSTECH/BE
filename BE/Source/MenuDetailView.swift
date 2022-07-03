@@ -33,8 +33,15 @@ struct MenuDetailView: View {
             orderViewModel.getOrder(order)
         }
         
-        print(orderViewModel.orders)
+        let cart: CartModel = CartModel(
+            foodName: menuModel.foodName.rawValue,
+            size: self.isSelected,
+            price: self.totalCost,
+            quantity: self.quantity
+        )
         
+        orderViewModel.putInCart(cart)
+                
         presentationMode.wrappedValue.dismiss()
     }
     

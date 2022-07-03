@@ -28,6 +28,7 @@
 		7A63FFEF2870E97700DCBCB9 /* RestaurantInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFEE2870E97700DCBCB9 /* RestaurantInfo.swift */; };
 		7A63FFF12870E9BA00DCBCB9 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFF02870E9BA00DCBCB9 /* MenuModel.swift */; };
 		7A63FFF82870F6D300DCBCB9 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFF72870F6D300DCBCB9 /* OrderViewModel.swift */; };
+		7A63FFFA287112DF00DCBCB9 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFF9287112DF00DCBCB9 /* Secret.swift */; };
 		7AB4047C28706D7B0000E192 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4047B28706D7B0000E192 /* MenuView.swift */; };
 		7AB4047E287071D20000E192 /* MenuDetailLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4047D287071D20000E192 /* MenuDetailLink.swift */; };
 		7AB40480287079310000E192 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4047F287079310000E192 /* MenuViewModel.swift */; };
@@ -40,7 +41,6 @@
 		C033B7E128707E3A00ABED90 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7E028707E3A00ABED90 /* CustomAlert.swift */; };
 		C033B7E32870840700ABED90 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7E22870840700ABED90 /* UIViewController.swift */; };
 		C07F9D0A2870BBD900F0777B /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F9D092870BBD900F0777B /* OrderManager.swift */; };
-		C07F9D0C2870FDDB00F0777B /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F9D0B2870FDDB00F0777B /* Secret.swift */; };
 		C089031D2870225800359264 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089031C2870225800359264 /* Constant.swift */; };
 		C08903202870228D00359264 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089031F2870228D00359264 /* LoginManager.swift */; };
 		C08903232870230C00359264 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08903222870230C00359264 /* String.swift */; };
@@ -79,6 +79,7 @@
 		7A63FFEE2870E97700DCBCB9 /* RestaurantInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfo.swift; sourceTree = "<group>"; };
 		7A63FFF02870E9BA00DCBCB9 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		7A63FFF72870F6D300DCBCB9 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		7A63FFF9287112DF00DCBCB9 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = "../../../../../../Downloads/Secrets 3/Secret.swift"; sourceTree = "<group>"; };
 		7AB4047B28706D7B0000E192 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		7AB4047D287071D20000E192 /* MenuDetailLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailLink.swift; sourceTree = "<group>"; };
 		7AB4047F287079310000E192 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		C033B7E028707E3A00ABED90 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		C033B7E22870840700ABED90 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		C07F9D092870BBD900F0777B /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
-		C07F9D0B2870FDDB00F0777B /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = ../../../../../Secrets/Secret.swift; sourceTree = "<group>"; };
 		C089031C2870225800359264 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C089031F2870228D00359264 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		C08903222870230C00359264 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		C07F9D062870B94800F0777B /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
-				C07F9D0B2870FDDB00F0777B /* Secret.swift */,
+				7A63FFF9287112DF00DCBCB9 /* Secret.swift */,
 			);
 			path = Secrets;
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 				C033B7E128707E3A00ABED90 /* CustomAlert.swift in Sources */,
 				7A3DF798287029FD00CCC81A /* TextInputContainer.swift in Sources */,
 				7A0AD47A2870C03100F81DBE /* OrderCompletionView.swift in Sources */,
-				C07F9D0C2870FDDB00F0777B /* Secret.swift in Sources */,
+				7A63FFFA287112DF00DCBCB9 /* Secret.swift in Sources */,
 				7A3DF79E28703CB800CCC81A /* OnboardingFirstView.swift in Sources */,
 				7A3DF79A28702D0500CCC81A /* RegisterNicknameView.swift in Sources */,
 				C08903202870228D00359264 /* LoginManager.swift in Sources */,

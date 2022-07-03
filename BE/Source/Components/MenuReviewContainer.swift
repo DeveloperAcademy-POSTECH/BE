@@ -12,11 +12,12 @@ struct MenuReviewContainer: View {
     let menuName: String
     let price: Int
     let quantity: Int
+    let size: String
     
     var body: some View {
         VStack {
             HStack {
-                Text(menuName)
+                Text(menuName + " (\(size))")
                     .font(.headline)
 
                 Spacer()
@@ -42,7 +43,8 @@ struct MenuReviewContainer_Previews: PreviewProvider {
         MenuReviewContainer(
             menuName: "삼겹살",
             price: 5000,
-            quantity: 10
+            quantity: 10,
+            size: "기본"
         )
     }
 }
