@@ -18,7 +18,7 @@ class OrderManager: ObservableObject {
     static let shared = OrderManager()
     private init() {}
     
-    private var selectedMenues: [String] = []
+    @Published var selectedMenues: [String] = []
     
     func addMenu(menus: [String]) {
         selectedMenues.append(contentsOf: menus)
@@ -54,10 +54,10 @@ class OrderManager: ObservableObject {
         guard let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") else { return }
         guard let userName = UserDefaults.standard.string(forKey: "userName") else { return }
         guard let userSession = UserDefaults.standard.string(forKey: "userSession") else {return}
-        guard selectedMenues.isEmpty else { return }
+        guard !selectedMenues.isEmpty else { return }
         let user = "\(userSession == "오후" ? "A" : "M").\(userName)"
         
-        var parameters: [[String: String]] = [[:]]
+        var parameters: [[String: String]] = []
         
         for menu in selectedMenues {
             let oidString = UUID().uuidString
@@ -69,7 +69,7 @@ class OrderManager: ObservableObject {
             ]
             parameters.append(parameter)
         }
-        
+        print(parameters)
         let url = URL(string: Secret.orderUrl)
         var request = URLRequest(url: url!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

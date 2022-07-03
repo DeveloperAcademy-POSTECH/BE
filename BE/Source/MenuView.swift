@@ -67,6 +67,7 @@ struct MenuView: View {
                                     destination:
                                         CartView()
                                         .navigationBarHidden(true)
+                                        .navigationTitle("")
                                 ) {
                                     CartButton(quantity: orderViewModel.orders.count)
                                 }
@@ -83,18 +84,13 @@ struct MenuView: View {
             }// VStack
             .background(Color.main)
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    UpperToolbar()
-                        .padding(.top, 21)
-                        .padding(.bottom, 44)
-                }
-            }
             
         }// NavigationView
         .fullScreenCover(isPresented: $isShowFullModal) {
             OnboardingTabView(isFirstLaunching: $isShowFullModal)
         }
+        .accentColor(.white)
+        .navigationTitle("")
     }// body
 }// MenuView
 

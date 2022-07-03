@@ -26,6 +26,7 @@ struct CartView: View {
 
         }
         OrderManager.shared.addMenu(menus: orderArray)
+        print("DEBUG: \(OrderManager.shared.selectedMenues)")
         OrderManager.shared.order()
         
         self.isOrderCompleted = true

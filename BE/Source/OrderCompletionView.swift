@@ -14,16 +14,16 @@ struct OrderCompletionView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Button(action: { presentationMode.wrappedValue.dismiss() }) {
-                    Image(systemName: "chevron.left")
-                        .font(.title3)
-                        .foregroundColor(.white)
-                }
-
-                Spacer()
-            }
-            .padding(.leading, 20)
+//            HStack {
+//                Button(action: { presentationMode.wrappedValue.dismiss() }) {
+//                    Image(systemName: "chevron.left")
+//                        .font(.title3)
+//                        .foregroundColor(.white)
+//                }
+//
+//                Spacer()
+//            }
+//            .padding(.leading, 20)
             
             VStack {
                 Spacer()
