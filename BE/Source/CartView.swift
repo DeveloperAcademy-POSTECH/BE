@@ -12,9 +12,23 @@ struct CartView: View {
     @EnvironmentObject var orderViewModel: OrderViewModel
     @State var quantity: Int = 0
     @State var isAlertActive: Bool = false
+    @State var totalPrice: Int = 0
+    @State var orderArray: [String] = []
+    @State var isOrderCompleted: Bool = false
     
     func showAlert() {
         self.isAlertActive = true
+    }
+    
+    func processOrder() {
+        for item in orderViewModel.orders {
+            orderArray.append(item.menu)
+
+        }
+        OrderManager.shared.addMenu(menus: orderArray)
+        OrderManager.shared.order()
+        
+        self.isOrderCompleted = true
     }
     
     var body: some View {
@@ -41,13 +55,16 @@ struct CartView: View {
                     
                     // Menu Review List
                     ScrollView {
-                        ForEach(orderViewModel.orders) { item in
+                        ForEach(orderViewModel.cartOrders, id: \.self) { item in
                             MenuReviewContainer(
-                                menuName: item.menu,
-                                price: 1000,
-                                quantity: 1
+                                menuName: item.foodName,
+                                price: item.price,
+                                quantity: item.quantity,
+                                size: item.size
                             )
-                            
+                            .onAppear {
+                                self.totalPrice = self.totalPrice + item.price
+                            }
                         }
                     }
                     
@@ -58,7 +75,7 @@ struct CartView: View {
                         
                         Spacer()
                         
-                        Text("12,000" + "원")
+                        Text("\(self.totalPrice)" + "원")
                             .font(.title3)
                             .fontWeight(.semibold)
                     }
@@ -81,9 +98,16 @@ struct CartView: View {
                             ),
                             secondaryButton: .default(
                                 Text("확인"),
-                                action: { }
+                                action: processOrder
                             )
                         )
+                    }
+                    
+                    NavigationLink(
+                        destination: OrderCompletionView(),
+                        isActive: $isOrderCompleted
+                    ) {
+                        EmptyView()
                     }
                     
                 }// VStack

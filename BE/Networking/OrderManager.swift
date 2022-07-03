@@ -50,7 +50,7 @@ class OrderManager: ObservableObject {
             }
     }
     
-    func order(with menu: String) {
+    func order() {
         guard let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") else { return }
         guard let userName = UserDefaults.standard.string(forKey: "userName") else { return }
         guard let userSession = UserDefaults.standard.string(forKey: "userSession") else {return}

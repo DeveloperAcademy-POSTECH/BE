@@ -9,9 +9,21 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct OrderCompletionView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var orderViewModel: OrderViewModel
+    
     var body: some View {
         VStack {
-            UpperToolbar()
+            HStack {
+                Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .font(.title3)
+                        .foregroundColor(.white)
+                }
+
+                Spacer()
+            }
+            .padding(.leading, 20)
             
             VStack {
                 Spacer()
@@ -39,11 +51,9 @@ struct OrderCompletionView: View {
                     title: "신협은행 132-024-256874 이명자",
                     backgroundColor: Color.container,
                     action: {
-                        UIPasteboard.general.setValue(
-                            "132-024-256874",
-                            forPasteboardType: UTType.plainText.identifier
-                        )
-                    })
+                        UIPasteboard.general.string = "132-024-256874"
+                    }
+                )
                 
                 HStack {
                     Image(systemName: "note.text")
@@ -61,18 +71,22 @@ struct OrderCompletionView: View {
                 .padding(.bottom, 9)
                 
                 VStack {
-                    HStack {
-                        Text("삼겹살")
+                    ForEach(orderViewModel.cartOrders, id: \.self) {item in
+                        HStack {
+                            Text(item.foodName)
 
-                        Spacer()
+                            Spacer()
 
-                        Text("1")
+                            Text("\(item.quantity)")
 
-                        Spacer()
+                            Spacer()
 
-                        Text("6,500원")
+                            Text("\(item.price)원")
+                        }
+                        .padding(17)
+
                     }
-                    .padding(17)
+
                 }
                 .background(.white)
                 .cornerRadius(10)
