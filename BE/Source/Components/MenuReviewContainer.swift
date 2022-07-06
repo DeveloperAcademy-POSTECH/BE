@@ -23,7 +23,7 @@ struct MenuReviewContainer: View {
             }
             
             HStack {
-                Text("\(price)" + "원")
+                Text("\(price * quantity)" + "원")
                 
                 Spacer()
                 

@@ -10,8 +10,17 @@ import SwiftUI
 struct CartView: View {
     @State var quantity: Int = 0
     @State var isAlertActive: Bool = false
-    @State var totalPrice: Int = 0
     @State var isOrderCompleted: Bool = false
+    
+    var totalPrice: Int {
+        let menus = orderManger.fetchCountPerMenues()
+        var temp = 0
+        for menu in menus {
+            temp += menu.price * menu.quantity
+        }
+        return temp
+    }
+
     
     let orderManger: OrderManager
     
@@ -46,9 +55,6 @@ struct CartView: View {
                                     price: item.price,
                                     quantity: item.quantity
                                 )
-                                .onAppear {
-                                    print("Hello")
-                                }
                             }
                         }
                     }
@@ -110,7 +116,7 @@ struct CartView: View {
         OrderManager.shared.order()
         self.isOrderCompleted = true
     }
-    
+
 }// CartView
 
 //struct CartView_Previews: PreviewProvider {
