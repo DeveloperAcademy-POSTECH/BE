@@ -10,72 +10,57 @@ import UniformTypeIdentifiers
 
 struct OrderCompletionView: View {
     @Environment(\.presentationMode) var presentationMode
+//    @EnvironmentObject var orderViewModel: OrderViewModel
     @State var orderList : [MenuItem] = OrderManager.shared.fetchCountPerMenues()
-    @State var accountNumberAnimation: Bool = true
-    @State var isEnabled: Bool = true
     
     var body: some View {
         VStack {
+//            HStack {
+//                Button(action: { presentationMode.wrappedValue.dismiss() }) {
+//                    Image(systemName: "chevron.left")
+//                        .font(.title3)
+//                        .foregroundColor(.white)
+//                }
+//
+//                Spacer()
+//            }
+//            .padding(.leading, 20)
+            
             VStack {
                 Spacer()
                 
                 Image(systemName: "checkmark")
                     .foregroundColor(.white)
                     .font(.title2)
-                    .padding(.vertical, 20)
-                    .padding(.top, 40)
+                    .padding(.bottom, 20)
                 
                 Text("주문이 완료 되었습니다.\n오늘 오후 1시 까지\n아래 계좌로 입금을 완료해주세요.")
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
+                    .padding(.bottom, 45)
                     .lineSpacing(6)
                 
-                Button {
-                    UIPasteboard.general.string = "132-024-256874"
-                    
-                    if isEnabled {
-                        withAnimation(.spring()) {
-                            accountNumberAnimation = false
-                            isEnabled = false
-                        }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            withAnimation(.spring()) {
-                                
-                                accountNumberAnimation = true
-                                isEnabled = true
-                            }
-                        }
-                    }
-                } label: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 12)
-                            .foregroundColor(Color.container)
-                        
-                        ZStack {
-                            Text(accountNumberAnimation ? "신협은행 132-024-256874 이명자" : "계좌번호가 복사되었습니다.")
-                                .foregroundColor(.white)
-                            
-                            HStack {
-                                Spacer()
-                                Image(systemName: "square.on.square")
-                                    .rotation3DEffect(.degrees(270), axis: (x: 0, y: 0, z: 1))
-                                    .rotation3DEffect(.degrees(180), axis: (x: 1, y: 1, z: 0))
-                                    .foregroundColor(.white)
-                                    .frame(width: 44, height: 44, alignment: .trailing)
-                                    .padding(.trailing, 20)
-                            }
-                        }
-                    }
+                HStack {
+                    Image(systemName: "shift.fill")
+                        .rotationEffect(.degrees(-180))
+                    Text("버튼을 클릭하여 복사하세요.")
+                        .font(.footnote)
+                        .foregroundColor(.black)
                 }
-                .frame(height: 60)
-                .padding(20)
+                
+                LongBottomButton(
+                    title: "신협은행 132-024-256874 이명자",
+                    backgroundColor: Color.container,
+                    action: {
+                        UIPasteboard.general.string = "132-024-256874"
+                    }
+                )
                 
                 HStack {
                     Image(systemName: "note.text")
                         .foregroundColor(.white)
                         .font(.headline)
-                    
+
                     Text("주문내역")
                         .font(.footnote)
                         .foregroundColor(.white)
@@ -86,50 +71,49 @@ struct OrderCompletionView: View {
                 .padding(.leading, 23)
                 .padding(.bottom, 9)
                 
-                ScrollView {
-                    VStack {
-                        ForEach(OrderManager.shared.fetchCountPerMenues(), id: \.self) { item in
-                            if item.quantity != 0 {
-                                HStack {
-                                    Text(item.name)
-                                        .frame(minWidth: 170, alignment: .leading)
-                                    
-                                    Spacer()
-                                    
-                                    Text("\(item.quantity)")
-                                    
-                                    Spacer()
-                                    
-                                    Text("\(item.price)")
-                                }
-                                .padding(17)
-                            }
+                VStack {
+//                    ForEach(orderViewModel.cartOrders, id: \.self) {item in
+//                        HStack {
+//                            Text(item.foodName)
+//
+//                            Spacer()
+//
+//                            Text("\(item.quantity)")
+//
+//                            Spacer()
+//
+//                            Text("\(item.price)원")
+//                        }
+//                        .padding(17)
+//
+//                    }
+                    ForEach(OrderManager.shared.fetchCountPerMenues(), id: \.self) { item in
+                        HStack {
+                            Text(item.name)
+
+                            Spacer()
+
+                            Text("\(item.quantity)")
+
+                            Spacer()
+
+                            Text("\(item.price)")
                         }
+                            .padding(17)
                     }
                 }
                 .background(.white)
                 .cornerRadius(10)
-                
                 .padding(.horizontal, 20)
+
                 
                 Spacer()
-                
-                LongBottomButton(
-                    title: "처음으로 돌아가기",
-                    backgroundColor: Color.container,
-                    action: {
-                        NavigationUtil.popToRootView()
-                        OrderManager.shared.clearSelectedMenues()
-                    }
-                )
-                .padding(.vertical, 20)
                 
             }
         }
         .background(Color.main)
     }
 }
-
 
 struct OrderCompletionView_Previews: PreviewProvider {
     static var previews: some View {

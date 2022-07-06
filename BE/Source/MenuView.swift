@@ -15,7 +15,7 @@ struct MenuView: View {
             isFirstLaunching = isShowFullModal
         }
     }
-    @State var popToRoot: Bool = false
+    @State var gobackFlag: Bool = false
     
     var menuList = [
         MenuModel(menu: .original, price: .normal),
@@ -62,6 +62,7 @@ struct MenuView: View {
                         ForEach (self.menuList) { eachMenu in
                             NavigationLink (
                                 destination: MenuDetailView(
+                                    
                                     menuModel: eachMenu
                                 )
                                 .navigationBarHidden(true)
@@ -76,9 +77,7 @@ struct MenuView: View {
                                 
                                 NavigationLink(
                                     destination:
-                                        CartView(
-                                            orderManger: orderManager
-                                        )
+                                        CartView(orderManger: orderManager)
                                         .navigationBarHidden(true)
                                         .navigationTitle("")
                                 ) {

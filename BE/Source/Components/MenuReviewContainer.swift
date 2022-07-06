@@ -31,7 +31,7 @@ struct MenuReviewContainer: View {
             }
         }
         .padding(.vertical, 17)
-        .padding(.horizontal, 16)
+        .padding(.leading, 16)
         .background(.white)
         .cornerRadius(10)
     }
