@@ -10,7 +10,8 @@ import UniformTypeIdentifiers
 
 struct OrderCompletionView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var orderViewModel: OrderViewModel
+//    @EnvironmentObject var orderViewModel: OrderViewModel
+    @State var orderList : [MenuItem] = OrderManager.shared.fetchCountPerMenues()
     
     var body: some View {
         VStack {
@@ -71,9 +72,24 @@ struct OrderCompletionView: View {
                 .padding(.bottom, 9)
                 
                 VStack {
-                    ForEach(orderViewModel.cartOrders, id: \.self) {item in
+//                    ForEach(orderViewModel.cartOrders, id: \.self) {item in
+//                        HStack {
+//                            Text(item.foodName)
+//
+//                            Spacer()
+//
+//                            Text("\(item.quantity)")
+//
+//                            Spacer()
+//
+//                            Text("\(item.price)원")
+//                        }
+//                        .padding(17)
+//
+//                    }
+                    ForEach(OrderManager.shared.fetchCountPerMenues(), id: \.self) { item in
                         HStack {
-                            Text(item.foodName)
+                            Text(item.name)
 
                             Spacer()
 
@@ -81,12 +97,10 @@ struct OrderCompletionView: View {
 
                             Spacer()
 
-                            Text("\(item.price)원")
+                            Text("\(item.price)")
                         }
-                        .padding(17)
-
+                            .padding(17)
                     }
-
                 }
                 .background(.white)
                 .cornerRadius(10)
