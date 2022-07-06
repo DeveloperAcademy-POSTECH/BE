@@ -35,6 +35,7 @@
 		7AB4048428708D450000E192 /* UpperToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4048328708D450000E192 /* UpperToolbar.swift */; };
 		7AB40486287095980000E192 /* RadioButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB40485287095980000E192 /* RadioButtonContainer.swift */; };
 		8924F8112875D81D0075C4D5 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924F8102875D81D0075C4D5 /* Secret.swift */; };
+		8924F813287601260075C4D5 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924F812287601260075C4D5 /* NavigationUtil.swift */; };
 		C033B7DB287058D600ABED90 /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7DA287058D600ABED90 /* VerificationCodeView.swift */; };
 		C033B7DD28706DFB00ABED90 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7DC28706DFB00ABED90 /* VerificationViewModel.swift */; };
 		C033B7DF2870744700ABED90 /* VerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7DE2870744700ABED90 /* VerificationCodeViewModel.swift */; };
@@ -85,6 +86,7 @@
 		7AB4048328708D450000E192 /* UpperToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperToolbar.swift; sourceTree = "<group>"; };
 		7AB40485287095980000E192 /* RadioButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonContainer.swift; sourceTree = "<group>"; };
 		8924F8102875D81D0075C4D5 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = ../../../../../../Downloads/Secrets/Secret.swift; sourceTree = "<group>"; };
+		8924F812287601260075C4D5 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		C033B7DA287058D600ABED90 /* VerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeView.swift; sourceTree = "<group>"; };
 		C033B7DC28706DFB00ABED90 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
 		C033B7DE2870744700ABED90 /* VerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewModel.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				C08903222870230C00359264 /* String.swift */,
 				7A3DF79B2870308100CCC81A /* View.swift */,
 				C033B7E22870840700ABED90 /* UIViewController.swift */,
+				8924F812287601260075C4D5 /* NavigationUtil.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				C033B7DF2870744700ABED90 /* VerificationCodeViewModel.swift in Sources */,
 				7A3DF79C2870308100CCC81A /* View.swift in Sources */,
 				7AB40486287095980000E192 /* RadioButtonContainer.swift in Sources */,
+				8924F813287601260075C4D5 /* NavigationUtil.swift in Sources */,
 				7A0AD4782870B48200F81DBE /* LongBottomButton.swift in Sources */,
 				C033B7E128707E3A00ABED90 /* CustomAlert.swift in Sources */,
 				7A3DF798287029FD00CCC81A /* TextInputContainer.swift in Sources */,

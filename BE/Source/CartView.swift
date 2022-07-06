@@ -95,7 +95,10 @@ struct CartView: View {
                     }
                     
                     NavigationLink(
-                        destination: OrderCompletionView(),
+                        destination:
+                            OrderCompletionView()
+                                .navigationBarHidden(true)
+                        ,
                         isActive: $isOrderCompleted
                     ) {
                         EmptyView()
