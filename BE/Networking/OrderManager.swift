@@ -41,6 +41,9 @@ class OrderManager: ObservableObject {
     private init() { }
 
     @Published private var selectedMenues: [String] = []
+    @Published private var orderAvailable: Bool = false
+    
+    func fetchOrderAvailable() -> Bool { return self.orderAvailable }
 
     private var selectedMenues: [String] = []
     @Published private var orderAvailable: Bool = false
@@ -86,6 +89,8 @@ class OrderManager: ObservableObject {
     func fetchSelectedMenuesCount() -> Int { return self.selectedMenues.count }
 
     func fetchSelectedMenues() -> [String] { return self.selectedMenues }
+    
+    func clearSelectedMenues() { return self.selectedMenues.removeAll() }
 
     func fetchCountPerMenues() -> [MenuItem] {
         var original = MenuItem(name: .original, quantity: 0)

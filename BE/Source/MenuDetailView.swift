@@ -13,7 +13,7 @@ struct MenuDetailView: View {
     @State var quantity: Int = 0
     @State var totalCost: Int = 0
     @State var orderItemArray: [String] = []
-//    @Binding var gobackFlag: Bool
+    
     var menuModel: MenuModel
     
     func putItemInCartAndAddMenus() {
