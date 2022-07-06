@@ -141,7 +141,6 @@
 		C07F9D062870B94800F0777B /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
-				37B042072875E32F0043E9CB /* Secret.swift */,
 			);
 			path = Secrets;
 			sourceTree = "<group>";
@@ -427,6 +426,7 @@
 				C0E0B0CC287013BC0081DD1F /* BEApp.swift in Sources */,
 				B26C81C42875F93200CDF4C0 /* PickerView.swift in Sources */,
 				7A63FFF82870F6D300DCBCB9 /* OrderViewModel.swift in Sources */,
+				8924F8112875D81D0075C4D5 /* Secret.swift in Sources */,
 				7A3DF7A2287044DC00CCC81A /* OnboardingLastView.swift in Sources */,
 				7AB4047E287071D20000E192 /* MenuDetailLink.swift in Sources */,
 				C033B7DB287058D600ABED90 /* VerificationCodeView.swift in Sources */,

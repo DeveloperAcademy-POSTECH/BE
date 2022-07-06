@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MenuDetailLink: View {
-    
-    let foodName: String
+     
+    var foodName: String
     
     var body: some View {
             HStack {
