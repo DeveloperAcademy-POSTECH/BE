@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct RegisterNicknameView: View {
-    
+    @StateObject var vm = RegisterNickNameViewModel()
     let title: String = "닉네임"
-    let placeholder: String = "닉네임을 입력해주세요"
+    let placeholder: String = "닉네임을 입력해주세요(영어 입력)"
+
     @Binding var isFirstLaunching: Bool
-    @State var userName: String = ""
     @State var isCompleted: Bool = false
     
     var body: some View {
@@ -28,8 +28,8 @@ struct RegisterNicknameView: View {
                 TextInputContainer(
                     title: title,
                     placeholder: placeholder,
-                    keyboardType: .default,
-                    description: $userName,
+                    keyboardType: .alphabet,
+                    description: $vm.userName,
                     isCompleted: $isCompleted
                 )
 
@@ -43,14 +43,12 @@ struct RegisterNicknameView: View {
             .padding(.horizontal, 20)
             .navigationTitle("")
             .onDisappear {
-                setUserName()
+                vm.setUserName()
             }
     }// body
     
     //MARK: - Helpers
-    func setUserName() {
-        UserDefaults.standard.set(userName, forKey: "userName")
-    }
+
 }// RegisterNicknameView
 
 struct RegisterNicknameView_Previews: PreviewProvider {
