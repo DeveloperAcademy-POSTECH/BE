@@ -86,6 +86,8 @@ class OrderManager: ObservableObject {
     func fetchSelectedMenuesCount() -> Int { return self.selectedMenues.count }
 
     func fetchSelectedMenues() -> [String] { return self.selectedMenues }
+    
+    func clearSelectedMenues() { return self.selectedMenues.removeAll() }
 
     func fetchCountPerMenues() -> [MenuItem] {
         var original = MenuItem(name: .original, quantity: 0)
