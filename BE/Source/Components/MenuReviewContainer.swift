@@ -9,22 +9,21 @@ import SwiftUI
 
 struct MenuReviewContainer: View {
 
-    let menuName: String
+    let menu: String
     let price: Int
     let quantity: Int
-    let size: String
     
     var body: some View {
         VStack {
             HStack {
-                Text(menuName + " (\(size))")
+                Text(menu)
                     .font(.headline)
 
                 Spacer()
             }
             
             HStack {
-                Text("\(price)" + "원")
+                Text("\(price * quantity)" + "원")
                 
                 Spacer()
                 
@@ -41,10 +40,9 @@ struct MenuReviewContainer: View {
 struct MenuReviewContainer_Previews: PreviewProvider {
     static var previews: some View {
         MenuReviewContainer(
-            menuName: "삼겹살",
+            menu: "삼겹살",
             price: 5000,
-            quantity: 10,
-            size: "기본"
+            quantity: 10
         )
     }
 }

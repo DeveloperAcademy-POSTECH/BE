@@ -7,19 +7,13 @@
 
 import Foundation
 
-class OrderViewModel: ObservableObject {
-    @Published var orders: [OrderModel] = []
-    @Published var cartOrders: [CartModel] = []
-    
-    init() {
-        return
-    }
-    
-    func getOrder(_ order: OrderModel) {
-        self.orders.append(order)
-    }
-    
-    func putInCart(_ order: CartModel) {
-        self.cartOrders.append(order)
-    }
-}
+//class OrderViewModel: ObservableObject {
+//    @Published var orders: [OrderModel] = []
+//    @Published var cartOrders: [CartModel] = []
+//
+//    init() { }
+//
+//    func putInCart(_ order: CartModel) {
+//        self.cartOrders.append(order)
+//    }
+//}
