@@ -15,6 +15,7 @@ struct BEApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 //    @StateObject var orderViewModel: OrderViewModel = OrderViewModel()
     @Environment(\.scenePhase) var scenePhase
+
     
     var body: some Scene {
         WindowGroup {

@@ -8,42 +8,24 @@
 import SwiftUI
 
 struct MenuDetailView: View {
-    
     @Environment(\.presentationMode) var presentationMode
-//    @EnvironmentObject var orderViewModel: OrderViewModel
     @State var price: Int = 0
-    @State var isSelected: String = "기본"
     @State var quantity: Int = 0
     @State var totalCost: Int = 0
+    @State var orderItemArray: [String] = []
+//    @Binding var gobackFlag: Bool
+    var menuModel: MenuModel
     
-    let menuModel: MenuModel
-    let normalSize: String = "기본"
-    let plusSize: String = "곱빼기"
-    
-    //nickName:String, foodName: FoodName, size: String, price: Int, quantity: Int, totalPrice: Int
-//    func dummyFunction() {
-//        let order: OrderModel = OrderModel(
-//            id: UUID(),
-//            user: "bethev",
-//            menu: menuModel.foodName.rawValue,
-//            phoneNumber: "01011112222"
-//        )
-//
-//        for _ in (0..<quantity) {
-//            orderViewModel.getOrder(order)
-//        }
-//
-//        let cart: CartModel = CartModel(
-//            foodName: menuModel.foodName.rawValue,
-//            size: self.isSelected,
-//            price: self.totalCost,
-//            quantity: self.quantity
-//        )
-//
-//        orderViewModel.putInCart(cart)
-//
-//        presentationMode.wrappedValue.dismiss()
-//    }
+    func putItemInCartAndAddMenus() {
+        for _ in (0..<quantity) {
+            orderItemArray.append(menuModel.menu)
+        }
+
+        OrderManager.shared.addMenu(menus: orderItemArray)
+        
+        presentationMode.wrappedValue.dismiss()
+
+    }
     
     var body: some View {
         VStack {
@@ -60,7 +42,7 @@ struct MenuDetailView: View {
                     MenuTitle()
                         .padding(.vertical, 10)
                     
-                    Text(menuModel.foodName.rawValue)
+                    Text(menuModel.menu)
                         .font(.title2)
                         .padding(.bottom, 24)
                     
@@ -72,21 +54,12 @@ struct MenuDetailView: View {
                     }
                     .padding(.horizontal, 22)
                     
-                    List {
-                        RadioButtonContainer(
-                            title: normalSize,
-                            price: menuModel.price,
-                            isSelected: $isSelected
-                        )
-                        .transition(.opacity)
-                        RadioButtonContainer(
-                            title: plusSize,
-                            price: menuModel.price + 1000,
-                            isSelected: $isSelected
-                        )
-                        .transition(.opacity)
-                    }
-                    .frame(maxHeight: 150)
+                    RadioButtonContainer(
+                        title: menuModel.menu,
+                        price: menuModel.price
+                    )
+                    .padding(.horizontal)
+                    .transition(.opacity)
                     
                     HStack {
                         Text("수량")
@@ -96,21 +69,7 @@ struct MenuDetailView: View {
                         
                         CustomStepper(quantity: $quantity)
                             .onChange(of: quantity) { newValue in
-                                if isSelected == "기본" {
-                                    self.totalCost = menuModel.price * newValue
-                                } else {
-                                    self.totalCost = (menuModel.price + 1000) * newValue
-                                }
-                            }
-                            .onChange(of: isSelected) { newValue in
-                                switch newValue {
-                                case "기본":
-                                    return self.totalCost = menuModel.price * quantity
-                                case "곱빼기":
-                                    return self.totalCost = (menuModel.price + 1000) * quantity
-                                default:
-                                    return
-                                }
+                                self.totalCost = newValue * menuModel.price
                             }
                     }
                     .padding(.horizontal, 24)
@@ -127,22 +86,23 @@ struct MenuDetailView: View {
                     
                     Spacer()
                     
-                    LongBottomButton(title: "\(quantity)개 담기", backgroundColor: Color.container) {
-                        for i in 0..<quantity {
-                            var string = menuModel.foodName
-                            OrderManager.shared.addMenu(menus: [])
-                        }
+                    LongBottomButton(
+                        title: "\(quantity)개 담기",
+                        backgroundColor: Color.container
+                    ) {
+                        putItemInCartAndAddMenus()
                     }
                     
                 }// VStack
             }// ZStack
+            
         }//VStack
         .background(Color.main.ignoresSafeArea())
     }// body
 }// MenuDetailView
 
 struct MenuDetailView_Previews: PreviewProvider {
-    static let menuModel = MenuModel(foodName: .pepper, price: 5500, plusSize: true)
+    static let menuModel = MenuModel(menu: .original, price: .normal)
     
     static var previews: some View {
         MenuDetailView(menuModel: menuModel)

@@ -40,6 +40,8 @@ class OrderManager: ObservableObject {
     static let shared = OrderManager()
     private init() { }
 
+    @Published private var selectedMenues: [String] = []
+
     private var selectedMenues: [String] = []
     @Published private var orderAvailable: Bool = false
     
