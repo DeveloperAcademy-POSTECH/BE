@@ -16,7 +16,7 @@ class VerificationCodeViewModel: ObservableObject {
             print("DEBUG: filtered \(filtered)")
             print("DEBUG: userName \(verificationCode)")
             if verificationCode != filtered {
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
                     self.verificationCode = filtered
                 }
             }

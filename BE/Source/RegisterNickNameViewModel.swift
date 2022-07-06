@@ -15,7 +15,7 @@ class RegisterNickNameViewModel: ObservableObject {
             print("DEBUG: filtered \(filtered)")
             print("DEBUG: userName \(userName)")
             if userName != filtered {
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
                     self.userName = filtered
                 }
             }
