@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MenuView: View {
-    @EnvironmentObject var orderViewModel: OrderViewModel
+//    @EnvironmentObject var orderViewModel: OrderViewModel
 
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
     @State var isShowFullModal: Bool = true {
@@ -59,7 +59,8 @@ struct MenuView: View {
                             }
                         }
                         
-                        if (!orderViewModel.orders.isEmpty) {
+//                        if (!orderViewModel.orders.isEmpty) {
+                        if(!OrderManager.shared.isSelectedMenuesEmpty()) {
                             HStack {
                                 Spacer()
                                 
@@ -69,7 +70,8 @@ struct MenuView: View {
                                         .navigationBarHidden(true)
                                         .navigationTitle("")
                                 ) {
-                                    CartButton(quantity: orderViewModel.orders.count)
+//                                    CartButton(quantity: orderViewModel.orders.count)
+                                    CartButton(quantity: OrderManager.shared.fetchSelectedMenuesCount())
                                 }
                             }
                         }
