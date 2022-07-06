@@ -10,7 +10,18 @@ import Combine
 
 class VerificationCodeViewModel: ObservableObject {
     var loginManager = LoginManager.shared
-    @Published var verificationCode: String = ""
+    @Published var verificationCode: String = "" {
+        didSet {
+            let filtered = verificationCode.filter { "0123456789".contains($0) }
+            print("DEBUG: filtered \(filtered)")
+            print("DEBUG: userName \(verificationCode)")
+            if verificationCode != filtered {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
+                    self.verificationCode = filtered
+                }
+            }
+        }
+    }
     @Published var isComplete: Bool = false
     @Published var isRetryEnable: Bool = true
     @Published var isVerify: Bool = false

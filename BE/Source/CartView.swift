@@ -12,6 +12,7 @@ struct CartView: View {
     @State var isAlertActive: Bool = false
 
     @State var isFalseAlertActive: Bool = false
+
     @State var isOrderCompleted: Bool = false
     
     var totalPrice: Int {
@@ -27,6 +28,7 @@ struct CartView: View {
     let orderManger: OrderManager
 
     func processOrder() {
+
         OrderManager.shared.setOrderAvailable()
         if OrderManager.shared.fetchOrderAvailable() {
             OrderManager.shared.order()
