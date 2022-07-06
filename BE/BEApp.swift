@@ -14,6 +14,7 @@ import UserNotifications
 struct BEApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 //    @StateObject var orderViewModel: OrderViewModel = OrderViewModel()
+    @Environment(\.scenePhase) var scenePhase
     
     var body: some Scene {
         WindowGroup {
@@ -24,6 +25,14 @@ struct BEApp: App {
                 }
 //                .environmentObject(orderViewModel)
         }
+        .onChange(of: scenePhase) { newScenePhase in
+                    switch newScenePhase {
+                    case .active:
+                        OrderManager.shared.setOrderAvailable()
+                    @unknown default:
+                        print("unexpected Value")
+                    }
+                }
     }
 }
 
