@@ -13,7 +13,8 @@ import UserNotifications
 @main
 struct BEApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject var orderViewModel: OrderViewModel = OrderViewModel()
+//    @StateObject var orderViewModel: OrderViewModel = OrderViewModel()
+    @StateOb
     
     var body: some Scene {
         WindowGroup {
@@ -22,7 +23,7 @@ struct BEApp: App {
                     print("Received URL: \(url)")
                     Auth.auth().canHandle(url) // <- just for information purposes
                 }
-                .environmentObject(orderViewModel)
+//                .environmentObject(orderViewModel)
         }
     }
 }

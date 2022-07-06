@@ -49,7 +49,7 @@ struct OnboardingLastView: View {
                 }
                 .frame(height: 60)
             }
-            Spacer()
+            Spacer(minLength: 38)
         }// VStack
         .padding(.top, 60)
         .padding(.horizontal, 20)
@@ -64,5 +64,6 @@ struct OnboardingLastView_Previews: PreviewProvider {
     
     static var previews: some View {
         OnboardingLastView(isFirstLaunching: $isFirstLaunching)
+            .previewDevice("iPod touch (7th generation)")
     }
 }
