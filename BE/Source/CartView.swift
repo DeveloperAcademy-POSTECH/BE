@@ -10,6 +10,8 @@ import SwiftUI
 struct CartView: View {
     @State var quantity: Int = 0
     @State var isAlertActive: Bool = false
+
+    @State var isFalseAlertActive: Bool = false
     @State var isOrderCompleted: Bool = false
     
     var totalPrice: Int {
@@ -23,6 +25,18 @@ struct CartView: View {
 
     
     let orderManger: OrderManager
+
+    func processOrder() {
+        OrderManager.shared.setOrderAvailable()
+        if OrderManager.shared.fetchOrderAvailable() {
+            OrderManager.shared.order()
+            self.isOrderCompleted = true
+        } else {
+            self.isFalseAlertActive = true
+        }
+    }
+    
+    @State var orderList: [MenuItem] = OrderManager.shared.fetchCountPerMenues()
     
     var body: some View {
         VStack {
@@ -55,6 +69,7 @@ struct CartView: View {
                                     price: item.price,
                                     quantity: item.quantity
                                 )
+
                             }
                         }
                     }
@@ -79,6 +94,11 @@ struct CartView: View {
                         backgroundColor: Color.main,
                         action: showAlert
                     )
+                    .alert(isPresented: $isFalseAlertActive) {
+                        Alert(
+                            title: Text("주문 가능 시간이 아닙니다.")
+                        )
+                    }
                     .alert(isPresented: $isAlertActive) {
                         Alert(
                             title: Text("주문하기"),
@@ -115,10 +135,6 @@ struct CartView: View {
         self.isAlertActive = true
     }
     
-    func processOrder() {
-        OrderManager.shared.order()
-        self.isOrderCompleted = true
-    }
 
 }// CartView
 

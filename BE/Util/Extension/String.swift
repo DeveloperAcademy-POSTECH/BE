@@ -17,7 +17,23 @@ extension String {
         let end = index(start, offsetBy: min(to, self.count) - from)
         return String(self[start ..< end])
     }
-    
+
+    func dateExtract() -> String {
+        let ymd = self.substring(from: 0, to: 10)
+        let hms = self.substring(from: 11, to: 19)
+        return "\(ymd) \(hms)"
+    }
+
+    func stringToDate() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+
+        let date: Date = dateFormatter.date(from: self)!
+
+        return date
+    }
+
     // MARK: comma
     // ex. "1234567890".insertComma == "1,234,567,890"
     var insertComma: String {
@@ -40,7 +56,7 @@ extension String {
                 }
                 guard let doubleValue = Double(numberString)
                     else {
-                        return self
+                    return self
                 }
                 return (numberFormatter.string(from: NSNumber(value: doubleValue)) ?? numberString) + ".\(numberArray[1])"
             }
@@ -48,7 +64,7 @@ extension String {
         else {
             guard let doubleValue = Double(self)
                 else {
-                    return self
+                return self
             }
             return numberFormatter.string(from: NSNumber(value: doubleValue)) ?? self
         }
