@@ -19,7 +19,7 @@ struct VerificationCodeView: View {
                         .font(.title2.bold())
                     Spacer()
                 }
-                TextInputContainer(title: "인증번호", placeholder: "인증번호를 입력해주세요.", keyboardType: .default, description: $vm.verificationCode, isCompleted: $vm.isComplete)
+                TextInputContainer(title: "인증번호", placeholder: "인증번호를 입력해주세요.", keyboardType: .numberPad, description: $vm.verificationCode, isCompleted: $vm.isComplete)
                 HStack {
                     Spacer()
                     Image(systemName: "clock.arrow.circlepath")

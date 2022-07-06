@@ -27,6 +27,7 @@ struct TextInputContainer: View {
             // 사용자의 텍스트를 입력받습니다.
             TextField("", text: $description)
                 .keyboardType(keyboardType)
+                .textInputAutocapitalization(.never)
                 .font(.title2)
                 .placeholder(when: description.isEmpty) {
                     Text(placeholder)
