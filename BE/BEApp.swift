@@ -14,7 +14,6 @@ import UserNotifications
 struct BEApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 //    @StateObject var orderViewModel: OrderViewModel = OrderViewModel()
-    @StateOb
     
     var body: some Scene {
         WindowGroup {

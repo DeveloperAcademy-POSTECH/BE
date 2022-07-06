@@ -128,7 +128,10 @@ struct MenuDetailView: View {
                     Spacer()
                     
                     LongBottomButton(title: "\(quantity)개 담기", backgroundColor: Color.container) {
-                       dummyFunction()
+                        for i in 0..<quantity {
+                            var string = menuModel.foodName
+                            OrderManager.shared.addMenu(menus: [])
+                        }
                     }
                     
                 }// VStack

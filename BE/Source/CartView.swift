@@ -29,6 +29,8 @@ struct CartView: View {
         self.isOrderCompleted = true
     }
     
+    @State var orderList: [MenuItem] = OrderManager.shared.fetchCountPerMenues()
+    
     var body: some View {
         VStack {
             // 상단 툴바
@@ -53,12 +55,11 @@ struct CartView: View {
                     
                     // Menu Review List
                     ScrollView {
-                        ForEach(OrderManager.fetchSelectedMenues(), id: \.self) { item in
+                        ForEach(self.orderList, id: \.self) { item in
                             MenuReviewContainer(
-                                menuName: item.foodName,
+                                menuName: item.name,
                                 price: item.price,
-                                quantity: item.quantity,
-                                size: item.size
+                                quantity: item.quantity
                             )
                             .onAppear {
                                 self.totalPrice = self.totalPrice + item.price
