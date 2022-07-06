@@ -9,11 +9,12 @@ import SwiftUI
 
 struct CartView: View {
     
-    @EnvironmentObject var orderViewModel: OrderViewModel
+//    @EnvironmentObject var orderViewModel: OrderViewModel
     @State var quantity: Int = 0
     @State var isAlertActive: Bool = false
+    @State var isFalseAlertActive: Bool = false
     @State var totalPrice: Int = 0
-    @State var orderArray: [String] = []
+//    @State var orderArray: [String] = []
     @State var isOrderCompleted: Bool = false
     
     func showAlert() {
@@ -21,15 +22,20 @@ struct CartView: View {
     }
     
     func processOrder() {
-        for item in orderViewModel.orders {
-            orderArray.append(item.menu)
-
+//        for item in orderViewModel.orders {
+//            orderArray.append(item.menu)
+//        }
+//        OrderManager.shared.addMenu(menus: orderArray)
+        OrderManager.shared.setOrderAvailable()
+        if OrderManager.shared.fetchOrderAvailable() {
+            OrderManager.shared.order()
+            self.isOrderCompleted = true
+        } else {
+            self.isFalseAlertActive = true
         }
-        OrderManager.shared.addMenu(menus: orderArray)
-        OrderManager.shared.order()
-        
-        self.isOrderCompleted = true
     }
+    
+    @State var orderList: [MenuItem] = OrderManager.shared.fetchCountPerMenues()
     
     var body: some View {
         VStack {
@@ -55,12 +61,11 @@ struct CartView: View {
                     
                     // Menu Review List
                     ScrollView {
-                        ForEach(orderViewModel.cartOrders, id: \.self) { item in
+                        ForEach(self.orderList, id: \.self) { item in
                             MenuReviewContainer(
-                                menuName: item.foodName,
+                                menuName: item.name,
                                 price: item.price,
-                                quantity: item.quantity,
-                                size: item.size
+                                quantity: item.quantity
                             )
                             .onAppear {
                                 self.totalPrice = self.totalPrice + item.price
@@ -88,6 +93,11 @@ struct CartView: View {
                         backgroundColor: Color.main,
                         action: showAlert
                     )
+                    .alert(isPresented: $isFalseAlertActive) {
+                        Alert(
+                            title: Text("주문 가능 시간이 아닙니다.")
+                        )
+                    }
                     .alert(isPresented: $isAlertActive) {
                         Alert(
                             title: Text("주문하기"),

@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct MenuView: View {
-    @EnvironmentObject var orderViewModel: OrderViewModel
+//    @EnvironmentObject var orderViewModel: OrderViewModel
 
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
     @State var isShowFullModal: Bool = true {
         didSet {
             isFirstLaunching = isShowFullModal
+        }
+    }
+    @State var showPicekrView: Bool = false {
+        didSet {
+            showPicekrView = !OrderManager.shared.fetchOrderAvailable()
         }
     }
 
@@ -59,7 +64,8 @@ struct MenuView: View {
                             }
                         }
                         
-                        if (!orderViewModel.orders.isEmpty) {
+//                        if (!orderViewModel.orders.isEmpty) {
+                        if(!OrderManager.shared.isSelectedMenuesEmpty()) {
                             HStack {
                                 Spacer()
                                 
@@ -67,8 +73,10 @@ struct MenuView: View {
                                     destination:
                                         CartView()
                                         .navigationBarHidden(true)
+                                        .navigationTitle("")
                                 ) {
-                                    CartButton(quantity: orderViewModel.orders.count)
+//                                    CartButton(quantity: orderViewModel.orders.count)
+                                    CartButton(quantity: OrderManager.shared.fetchSelectedMenuesCount())
                                 }
                             }
                         }
@@ -83,18 +91,16 @@ struct MenuView: View {
             }// VStack
             .background(Color.main)
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    UpperToolbar()
-                        .padding(.top, 21)
-                        .padding(.bottom, 44)
-                }
-            }
             
         }// NavigationView
         .fullScreenCover(isPresented: $isShowFullModal) {
             OnboardingTabView(isFirstLaunching: $isShowFullModal)
         }
+        .fullScreenCover(isPresented: $showPicekrView) {
+            PickerView()
+        }
+        .accentColor(.white)
+        .navigationTitle("")
     }// body
 }// MenuView
 

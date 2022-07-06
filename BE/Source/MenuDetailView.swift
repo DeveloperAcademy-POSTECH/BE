@@ -10,7 +10,7 @@ import SwiftUI
 struct MenuDetailView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var orderViewModel: OrderViewModel
+//    @EnvironmentObject var orderViewModel: OrderViewModel
     @State var price: Int = 0
     @State var isSelected: String = "기본"
     @State var quantity: Int = 0
@@ -21,29 +21,29 @@ struct MenuDetailView: View {
     let plusSize: String = "곱빼기"
     
     //nickName:String, foodName: FoodName, size: String, price: Int, quantity: Int, totalPrice: Int
-    func dummyFunction() {
-        let order: OrderModel = OrderModel(
-            id: UUID(),
-            user: "bethev",
-            menu: menuModel.foodName.rawValue,
-            phoneNumber: "01011112222"
-        )
-        
-        for _ in (0..<quantity) {
-            orderViewModel.getOrder(order)
-        }
-        
-        let cart: CartModel = CartModel(
-            foodName: menuModel.foodName.rawValue,
-            size: self.isSelected,
-            price: self.totalCost,
-            quantity: self.quantity
-        )
-        
-        orderViewModel.putInCart(cart)
-                
-        presentationMode.wrappedValue.dismiss()
-    }
+//    func dummyFunction() {
+//        let order: OrderModel = OrderModel(
+//            id: UUID(),
+//            user: "bethev",
+//            menu: menuModel.foodName.rawValue,
+//            phoneNumber: "01011112222"
+//        )
+//
+//        for _ in (0..<quantity) {
+//            orderViewModel.getOrder(order)
+//        }
+//
+//        let cart: CartModel = CartModel(
+//            foodName: menuModel.foodName.rawValue,
+//            size: self.isSelected,
+//            price: self.totalCost,
+//            quantity: self.quantity
+//        )
+//
+//        orderViewModel.putInCart(cart)
+//
+//        presentationMode.wrappedValue.dismiss()
+//    }
     
     var body: some View {
         VStack {
@@ -130,7 +130,6 @@ struct MenuDetailView: View {
                     LongBottomButton(title: "\(quantity)개 담기", backgroundColor: Color.container) {
                         for i in 0..<quantity {
                             var string = menuModel.foodName
-//                            if pl
                             OrderManager.shared.addMenu(menus: [])
                         }
                     }
