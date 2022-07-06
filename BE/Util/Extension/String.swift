@@ -8,6 +8,24 @@
 import Foundation
 
 extension String {
+    
+    // MARK: TimeStamp to DateString
+    func dateExtract() -> String {
+            let hour = self.substring(from: 11, to: 13)
+            return "\(hour)"
+        }
+    
+    // MARK: string to Date
+    func stringToDate() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+
+        let date:Date = dateFormatter.date(from: self)!
+        
+        return date
+    }
+    
     // MARK: substring
     func substring(from: Int, to: Int) -> String {
         guard (to >= 0) && (from <= self.count) && (from <= to) else {

@@ -42,8 +42,43 @@ class OrderManager: ObservableObject {
 
     @Published private var selectedMenues: [String] = []
 
+    private var selectedMenues: [String] = []
+    @Published private var orderAvailable: Bool = false
+    
+    func fetchOrderAvailable() -> Bool { return self.orderAvailable }
+
     func addMenu(menus: [String]) {
         selectedMenues.append(contentsOf: menus)
+    }
+    
+    func setOrderAvailable() -> Void {
+        AF.request("https://worldtimeapi.org/api/timezone/Asia/Seoul")
+            .responseString { response in
+                switch response.result {
+                case .success(let string):
+                    print(string)
+                    let jsonData = string.data(using: .utf8)!
+                    do {
+                        let decoder = JSONDecoder()
+                        let tableData = try decoder.decode(TimeData.self, from: jsonData)
+                        let dateData = tableData.datetime.dateExtract()
+                        if let hourInteger = Int(dateData) {
+                            if hourInteger >= 10 && hourInteger < 14 {
+                                self.orderAvailable = false
+                            } else {
+                                self.orderAvailable = true
+                            }
+                        } else {
+                            print("DEBUG: 시간 타입 변환 에러")
+                        }
+                    }
+                    catch {
+                        print (error)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+        }
     }
 
     func isSelectedMenuesEmpty() -> Bool { return self.selectedMenues.isEmpty }
@@ -206,3 +241,60 @@ struct Response: Codable {
 struct User: Codable {
     var user: String
 }
+
+struct TimeData: Codable {
+    let abbreviation, clientIP, datetime: String
+    let dayOfWeek, dayOfYear: Int
+    let dst: Bool
+    let dstFrom: JSONNull?
+    let dstOffset: Int
+    let dstUntil: JSONNull?
+    let rawOffset: Int
+    let timezone: String
+    let unixtime: Int
+    let utcDatetime, utcOffset: String
+    let weekNumber: Int
+
+    enum CodingKeys: String, CodingKey {
+        case abbreviation
+        case clientIP = "client_ip"
+        case datetime
+        case dayOfWeek = "day_of_week"
+        case dayOfYear = "day_of_year"
+        case dst
+        case dstFrom = "dst_from"
+        case dstOffset = "dst_offset"
+        case dstUntil = "dst_until"
+        case rawOffset = "raw_offset"
+        case timezone, unixtime
+        case utcDatetime = "utc_datetime"
+        case utcOffset = "utc_offset"
+        case weekNumber = "week_number"
+    }
+}
+
+class JSONNull: Codable, Hashable {
+
+    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
+        return true
+    }
+
+    public var hashValue: Int {
+        return 0
+    }
+
+    public init() {}
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if !container.decodeNil() {
+            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+        }
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encodeNil()
+    }
+}
+
