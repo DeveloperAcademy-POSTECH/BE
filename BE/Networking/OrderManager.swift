@@ -43,12 +43,7 @@ class OrderManager: ObservableObject {
     @Published private var selectedMenues: [String] = []
     @Published private var orderAvailable: Bool = false
     
-    func fetchOrderAvailable() -> Bool { return self.orderAvailable }
-
-    private var selectedMenues: [String] = []
-    @Published private var orderAvailable: Bool = false
-    
-    func fetchOrderAvailable() -> Bool { return self.orderAvailable }
+    func fetchOrderAvailable() -> Bool { return self.orderAvailable }    
 
     func addMenu(menus: [String]) {
         selectedMenues.append(contentsOf: menus)

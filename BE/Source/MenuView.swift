@@ -111,7 +111,7 @@ struct MenuView: View {
             OnboardingTabView(isFirstLaunching: $isShowFullModal)
         }
         .fullScreenCover(isPresented: $showPicekrView) {
-            PickerView()
+            
         }
         .accentColor(.white)
         .navigationTitle("")
