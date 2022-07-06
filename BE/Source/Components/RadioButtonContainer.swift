@@ -11,14 +11,13 @@ struct RadioButtonContainer: View {
     
     let title: String
     let price: Int
-    @Binding var isSelected: String
     
     var body: some View {
         HStack {
             ZStack {
                 Circle()
                     .scale(0.5)
-                    .foregroundColor(isSelected == title ? Color.main : Color.background)
+                    .foregroundColor(Color.main)
                 Circle()
                     .scale(0.25)
                     .foregroundColor(.white)
@@ -33,28 +32,24 @@ struct RadioButtonContainer: View {
             
             Text("\(price)" + " 원")
                 .font(.headline)
+                .padding(.trailing, 20)
                 .foregroundColor(Color.container)
         }
         .background(.white)
-        .onTapGesture {
-            withAnimation {
-                self.isSelected = self.title
-            }
-        }
-    }
-}
+        .cornerRadius(10)
+        
+    }// body
+}// RadioButtonContainer
 
 struct RadioButtonContainer_Previews: PreviewProvider {
     
     static let title: String = "Hello"
     static var price: Int = 50
-    @State static var isSelected: String = "기본"
     
     static var previews: some View {
         RadioButtonContainer(
             title: title,
-            price: price,
-            isSelected: $isSelected
+            price: price
         )
     }
 }

@@ -8,26 +8,12 @@
 import SwiftUI
 
 struct CartView: View {
-    
-//    @EnvironmentObject var orderViewModel: OrderViewModel
     @State var quantity: Int = 0
     @State var isAlertActive: Bool = false
     @State var totalPrice: Int = 0
-//    @State var orderArray: [String] = []
     @State var isOrderCompleted: Bool = false
     
-    func showAlert() {
-        self.isAlertActive = true
-    }
-    
-    func processOrder() {
-//        for item in orderViewModel.orders {
-//            orderArray.append(item.menu)
-//        }
-//        OrderManager.shared.addMenu(menus: orderArray)
-        OrderManager.shared.order()
-        self.isOrderCompleted = true
-    }
+    let orderManger: OrderManager
     
     var body: some View {
         VStack {
@@ -43,7 +29,7 @@ struct CartView: View {
                     MenuTitle()
                     
                     HStack {
-                        Text(Restaurant.restaurantName)
+                        Text("참서리")
                             .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(.gray)
@@ -53,15 +39,16 @@ struct CartView: View {
                     
                     // Menu Review List
                     ScrollView {
-                        ForEach(OrderManager.fetchSelectedMenues(), id: \.self) { item in
-                            MenuReviewContainer(
-                                menuName: item.foodName,
-                                price: item.price,
-                                quantity: item.quantity,
-                                size: item.size
-                            )
-                            .onAppear {
-                                self.totalPrice = self.totalPrice + item.price
+                        ForEach(orderManger.fetchCountPerMenues(), id: \.self) { item in
+                            if item.quantity != 0 {
+                                MenuReviewContainer(
+                                    menu: item.name,
+                                    price: item.price,
+                                    quantity: item.quantity
+                                )
+                                .onAppear {
+                                    print("Hello")
+                                }
                             }
                         }
                     }
@@ -114,10 +101,20 @@ struct CartView: View {
         }// VStack
         .background(Color.main.ignoresSafeArea())
     }// body
+    
+    func showAlert() {
+        self.isAlertActive = true
+    }
+    
+    func processOrder() {
+        OrderManager.shared.order()
+        self.isOrderCompleted = true
+    }
+    
 }// CartView
 
-struct CartView_Previews: PreviewProvider {
-    static var previews: some View {
-        CartView()
-    }
-}
+//struct CartView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CartView()
+//    }
+//}

@@ -11,16 +11,14 @@ import Foundation
 
 struct OrderModel: Identifiable {
     var id = UUID()
-    
-    let oid = UUID()
     let user: String
     let menu: String
     let phoneNumber: String
 }
 
 struct CartModel: Hashable {
-    let foodName: String
-    let size: String
+    let menu: String
     let price: Int
     let quantity: Int
+    let totalPrice: Int
 }

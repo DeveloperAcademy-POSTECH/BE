@@ -40,7 +40,7 @@ class OrderManager: ObservableObject {
     static let shared = OrderManager()
     private init() { }
 
-    private var selectedMenues: [String] = []
+    @Published private var selectedMenues: [String] = []
 
     func addMenu(menus: [String]) {
         selectedMenues.append(contentsOf: menus)

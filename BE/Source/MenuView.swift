@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct MenuView: View {
-//    @EnvironmentObject var orderViewModel: OrderViewModel
-
-    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
-    @State var isShowFullModal: Bool = true {
+    @StateObject var orderManager: OrderManager = OrderManager.shared
+    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = false
+    @State var isShowFullModal: Bool = false {
         didSet {
             isFirstLaunching = isShowFullModal
         }
     }
-
+    @State var gobackFlag: Bool = false
+    
+    var menuList = [
+        MenuModel(menu: .original, price: .normal),
+        MenuModel(menu: .originalExtra, price: .extra),
+        MenuModel(menu: .soySauce, price: .normal),
+        MenuModel(menu: .soySauceExtra, price: .extra),
+        MenuModel(menu: .pepper, price: .normal),
+        MenuModel(menu: .peperExtra, price: .extra),
+    ]
     
     var body: some View {
         NavigationView {
@@ -40,7 +48,7 @@ struct MenuView: View {
                         
                         // Restaurant Name
                         HStack {
-                            Text(Restaurant.restaurantName)
+                            Text("참서리")
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .foregroundColor(.gray)
@@ -51,29 +59,33 @@ struct MenuView: View {
                         .padding(.bottom, 11)
                         
                         // Menu detail links
-                        ForEach (Restaurant.menuList, id: \.self) { menuInfo in
+                        ForEach (self.menuList) { eachMenu in
                             NavigationLink (
-                                destination: MenuDetailView(menuModel: menuInfo).navigationBarHidden(true)
+                                destination: MenuDetailView(
+                                    
+                                    menuModel: eachMenu
+                                )
+                                .navigationBarHidden(true)
                             ) {
-                                MenuDetailLink(foodName: menuInfo.foodName.rawValue)
+                                MenuDetailLink(foodName: eachMenu.menu)
                             }
                         }
                         
-//                        if (!orderViewModel.orders.isEmpty) {
-                        if(!OrderManager.shared.isSelectedMenuesEmpty()) {
+                        if (!orderManager.isSelectedMenuesEmpty()) {
                             HStack {
                                 Spacer()
                                 
                                 NavigationLink(
                                     destination:
-                                        CartView()
+                                        CartView(orderManger: orderManager)
                                         .navigationBarHidden(true)
                                         .navigationTitle("")
                                 ) {
-//                                    CartButton(quantity: orderViewModel.orders.count)
-                                    CartButton(quantity: OrderManager.shared.fetchSelectedMenuesCount())
+                                    CartButton(
+                                        quantity: orderManager.fetchSelectedMenuesCount()
+                                    )
                                 }
-                            }
+                            }// HStack
                         }
                         
                         Spacer()
@@ -103,7 +115,6 @@ struct MenuView_Previews: PreviewProvider {
 }
 
 struct CartButton: View {
-    
     let quantity: Int
     
     var body: some View {
@@ -122,12 +133,12 @@ struct CartButton: View {
                     .frame(maxWidth: 25, maxHeight: 25)
                     .padding(.leading, 30)
                     .padding(.bottom, 25)
-
+                
                 Text("\(quantity)")
                     .foregroundColor(.main)
                     .padding(.leading, 30)
                     .padding(.bottom, 25)
-
+                
             }
         }
     }

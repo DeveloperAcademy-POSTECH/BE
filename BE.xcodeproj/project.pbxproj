@@ -34,13 +34,13 @@
 		7AB4048228708C6D0000E192 /* MenuDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4048128708C6D0000E192 /* MenuDetailView.swift */; };
 		7AB4048428708D450000E192 /* UpperToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4048328708D450000E192 /* UpperToolbar.swift */; };
 		7AB40486287095980000E192 /* RadioButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB40485287095980000E192 /* RadioButtonContainer.swift */; };
+		8924F8112875D81D0075C4D5 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924F8102875D81D0075C4D5 /* Secret.swift */; };
 		C033B7DB287058D600ABED90 /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7DA287058D600ABED90 /* VerificationCodeView.swift */; };
 		C033B7DD28706DFB00ABED90 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7DC28706DFB00ABED90 /* VerificationViewModel.swift */; };
 		C033B7DF2870744700ABED90 /* VerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7DE2870744700ABED90 /* VerificationCodeViewModel.swift */; };
 		C033B7E128707E3A00ABED90 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7E028707E3A00ABED90 /* CustomAlert.swift */; };
 		C033B7E32870840700ABED90 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7E22870840700ABED90 /* UIViewController.swift */; };
 		C07F9D0A2870BBD900F0777B /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F9D092870BBD900F0777B /* OrderManager.swift */; };
-		C07F9D0E2871192000F0777B /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F9D0D2871192000F0777B /* Secret.swift */; };
 		C089031D2870225800359264 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089031C2870225800359264 /* Constant.swift */; };
 		C08903202870228D00359264 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C089031F2870228D00359264 /* LoginManager.swift */; };
 		C08903232870230C00359264 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08903222870230C00359264 /* String.swift */; };
@@ -84,13 +84,13 @@
 		7AB4048128708C6D0000E192 /* MenuDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailView.swift; sourceTree = "<group>"; };
 		7AB4048328708D450000E192 /* UpperToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperToolbar.swift; sourceTree = "<group>"; };
 		7AB40485287095980000E192 /* RadioButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonContainer.swift; sourceTree = "<group>"; };
+		8924F8102875D81D0075C4D5 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = ../../../../../../Downloads/Secrets/Secret.swift; sourceTree = "<group>"; };
 		C033B7DA287058D600ABED90 /* VerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeView.swift; sourceTree = "<group>"; };
 		C033B7DC28706DFB00ABED90 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
 		C033B7DE2870744700ABED90 /* VerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewModel.swift; sourceTree = "<group>"; };
 		C033B7E028707E3A00ABED90 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		C033B7E22870840700ABED90 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		C07F9D092870BBD900F0777B /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
-		C07F9D0D2871192000F0777B /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = ../../../../../Secrets/Secret.swift; sourceTree = "<group>"; };
 		C089031C2870225800359264 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C089031F2870228D00359264 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		C08903222870230C00359264 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		C07F9D062870B94800F0777B /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
-				C07F9D0D2871192000F0777B /* Secret.swift */,
+				8924F8102875D81D0075C4D5 /* Secret.swift */,
 			);
 			path = Secrets;
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 				C033B7E32870840700ABED90 /* UIViewController.swift in Sources */,
 				C0E0B0CC287013BC0081DD1F /* BEApp.swift in Sources */,
 				7A63FFF82870F6D300DCBCB9 /* OrderViewModel.swift in Sources */,
-				C07F9D0E2871192000F0777B /* Secret.swift in Sources */,
+				8924F8112875D81D0075C4D5 /* Secret.swift in Sources */,
 				7A3DF7A2287044DC00CCC81A /* OnboardingLastView.swift in Sources */,
 				7AB4047E287071D20000E192 /* MenuDetailLink.swift in Sources */,
 				C033B7DB287058D600ABED90 /* VerificationCodeView.swift in Sources */,
