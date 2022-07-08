@@ -15,6 +15,12 @@ struct MenuView: View {
             isFirstLaunching = isShowFullModal
         }
     }
+    @State var showPicekrView = false {
+        didSet {
+            showPicekrView = !OrderManager.shared.fetchOrderAvailable()
+        }
+    }
+    
     @State var popToRoot: Bool = false
     
     var menuList = [
@@ -105,7 +111,7 @@ struct MenuView: View {
             OnboardingTabView(isFirstLaunching: $isShowFullModal)
         }
         .fullScreenCover(isPresented: $showPicekrView) {
-            PickerView()
+            
         }
         .accentColor(.white)
         .navigationTitle("")

@@ -35,7 +35,8 @@ extension String {
         let end = index(start, offsetBy: min(to, self.count) - from)
         return String(self[start ..< end])
     }
-    
+
+
     // MARK: comma
     // ex. "1234567890".insertComma == "1,234,567,890"
     var insertComma: String {
@@ -58,7 +59,7 @@ extension String {
                 }
                 guard let doubleValue = Double(numberString)
                     else {
-                        return self
+                    return self
                 }
                 return (numberFormatter.string(from: NSNumber(value: doubleValue)) ?? numberString) + ".\(numberArray[1])"
             }
@@ -66,7 +67,7 @@ extension String {
         else {
             guard let doubleValue = Double(self)
                 else {
-                    return self
+                return self
             }
             return numberFormatter.string(from: NSNumber(value: doubleValue)) ?? self
         }
