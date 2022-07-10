@@ -29,9 +29,9 @@ struct CartView: View {
 
     func processOrder() {
 
-        OrderManager.shared.setOrderAvailable()
-        if OrderManager.shared.fetchOrderAvailable() {
-            OrderManager.shared.order()
+//        orderManger.setOrderAvailable()
+        if !orderManger.fetchOrderAvailable() {
+            orderManger.order()
             self.isOrderCompleted = true
         } else {
             self.isFalseAlertActive = true

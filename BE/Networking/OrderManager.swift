@@ -62,9 +62,9 @@ class OrderManager: ObservableObject {
                         let dateData = tableData.datetime.dateExtract()
                         if let hourInteger = Int(dateData) {
                             if hourInteger >= 10 && hourInteger < 14 {
-                                self.orderAvailable = false
-                            } else {
                                 self.orderAvailable = true
+                            } else {
+                                self.orderAvailable = false
                             }
                         } else {
                             print("DEBUG: 시간 타입 변환 에러")
@@ -157,15 +157,14 @@ class OrderManager: ObservableObject {
         guard let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") else { return }
         guard let userName = UserDefaults.standard.string(forKey: "userName") else { return }
         guard let userSession = UserDefaults.standard.string(forKey: "userSession") else { return }
-        guard selectedMenues.isEmpty else { return }
+        guard !selectedMenues.isEmpty else { return }
         let user = "\(userSession == "오후" ? "A" : "M").\(userName)"
 
-        var parameters: [[String: String]] = [[:]]
+        var parameters: [[String: String]] = []
 
         for menu in selectedMenues {
-            let oidString = UUID().uuidString
             let parameter = [
-                "oid": oidString,
+                "oid": UUID().uuidString,
                 "user": user,
                 "menu": menu,
                 "phoneNumber": phoneNumber

@@ -9,7 +9,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct OrderCompletionView: View {
-    @Environment(\.presentationMode) var presentationMode
+//    @Environment(\.presentationMode) var presentationMode
     @State var orderList : [MenuItem] = OrderManager.shared.fetchCountPerMenues()
     @State var accountNumberAnimation: Bool = true
     @State var isEnabled: Bool = true
@@ -118,7 +118,7 @@ struct OrderCompletionView: View {
                     title: "처음으로 돌아가기",
                     backgroundColor: Color.container,
                     action: {
-                        NavigationUtil.popToRootView()
+//                        NavigationUtil.popToRootView()
                         OrderManager.shared.clearSelectedMenues()
                     }
                 )
