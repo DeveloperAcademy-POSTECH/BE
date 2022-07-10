@@ -31,9 +31,6 @@ class VerificationViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     func requestVerificationCode() {
-        let subString = phoneNumber.substring(from: 3, to: 11)
-        let globalNumString = "+8210\(subString)"
-        print("DEBUG: globalNumString \(globalNumString) ")
-        self.loginManager.verify(phoneNumber: globalNumString)
+        self.loginManager.verify(phoneNumber: phoneNumber)
     }
 }

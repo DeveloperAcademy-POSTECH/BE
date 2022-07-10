@@ -14,8 +14,10 @@ class LoginManager: ObservableObject {
     
     func verify(phoneNumber: String) {
         UserDefaults.standard.set(phoneNumber, forKey: "phoneNumber")
+        let subString = phoneNumber.substring(from: 3, to: 11)
+        let globalNumString = "+8210\(subString)"
         PhoneAuthProvider.provider()
-            .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
+            .verifyPhoneNumber(globalNumString, uiDelegate: nil) { verificationID, error in
                 if let error = error {
                     print("ERROR: \(error.localizedDescription)")
                 } else {

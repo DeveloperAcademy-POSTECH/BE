@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MenuView: View {
     @StateObject var orderManager: OrderManager = OrderManager.shared
-    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = false
-    @State var isShowFullModal: Bool = false {
+    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    @State var isShowFullModal: Bool = true {
         didSet {
             isFirstLaunching = isShowFullModal
         }
