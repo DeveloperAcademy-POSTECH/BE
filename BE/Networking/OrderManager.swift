@@ -27,7 +27,7 @@ struct MenuItem: Hashable, Identifiable {
     init(name: ChamMenuName, quantity: Int) {
         self.name = name.rawValue
         self.quantity = quantity
-        self.price = self.name.contains("Extra") ? ChamMenuPrice.extra.rawValue : ChamMenuPrice.normal.rawValue
+        self.price = self.name.contains("곱빼기") ? ChamMenuPrice.extra.rawValue : ChamMenuPrice.normal.rawValue
     }
     
     let id = UUID()
