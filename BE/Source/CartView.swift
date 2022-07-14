@@ -10,36 +10,21 @@ import SwiftUI
 struct CartView: View {
     @State var quantity: Int = 0
     @State var isAlertActive: Bool = false
-
-    @State var isFalseAlertActive: Bool = false
-
     @State var isOrderCompleted: Bool = false
+    @State var isFalseAlertActive: Bool = false
+    @State var orderList: [MenuItem] = OrderManager.shared.fetchCountPerMenues()
     
+    let orderManger: OrderManager
     var totalPrice: Int {
         let menus = orderManger.fetchCountPerMenues()
         var temp = 0
         for menu in menus {
             temp += menu.price * menu.quantity
         }
+        
         return temp
     }
 
-    
-    let orderManger: OrderManager
-
-    func processOrder() {
-
-//        orderManger.setOrderAvailable()
-        if !orderManger.fetchOrderAvailable() {
-            orderManger.order()
-            self.isOrderCompleted = true
-        } else {
-            self.isFalseAlertActive = true
-        }
-    }
-    
-    @State var orderList: [MenuItem] = OrderManager.shared.fetchCountPerMenues()
-    
     var body: some View {
         VStack {
             // 상단 툴바
@@ -67,11 +52,10 @@ struct CartView: View {
                         ForEach(orderManger.fetchCountPerMenues(), id: \.self) { item in
                             if item.quantity != 0 {
                                 MenuReviewContainer(
-                                    menu: item.name,
+                                    quantity: item.quantity,
                                     price: item.price,
-                                    quantity: item.quantity
+                                    menu: item.name
                                 )
-
                             }
                         }
                     }
@@ -116,7 +100,7 @@ struct CartView: View {
                         )
                     }
                     
-                    NavigationLink(
+                    NavigationLink (
                         destination:
                             OrderCompletionView()
                                 .navigationBarHidden(true)
@@ -137,11 +121,22 @@ struct CartView: View {
         self.isAlertActive = true
     }
     
+    func processOrder() {
 
+//        orderManger.setOrderAvailable()
+        if !orderManger.fetchOrderAvailable() {
+            orderManger.order()
+            self.isOrderCompleted = true
+        } else {
+            self.isFalseAlertActive = true
+        }
+    }
+    
 }// CartView
 
-//struct CartView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CartView()
-//    }
-//}
+struct CartView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        CartView(orderManger: OrderManager.shared)
+    }
+}

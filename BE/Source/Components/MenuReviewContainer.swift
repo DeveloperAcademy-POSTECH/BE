@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct MenuReviewContainer: View {
+    @State var quantity: Int
 
-    let menu: String
     let price: Int
-    let quantity: Int
-    
+    let menu: String
+    var orderManager = OrderManager.shared
+
     var body: some View {
         VStack {
             HStack {
@@ -27,22 +28,30 @@ struct MenuReviewContainer: View {
                 
                 Spacer()
                 
-                Text("\(quantity)")
+                CustomStepper(quantity: $quantity)
             }
         }
         .padding(.vertical, 17)
         .padding(.horizontal, 16)
         .background(.white)
         .cornerRadius(10)
+        .onChange(of: quantity) { newValue in
+            var newProductArray: [String] = []
+
+            for _ in (0..<newValue) {
+                newProductArray.append(menu)
+            }
+            orderManager.updateSelectedMenuQuantity(menuName: menu, newOrder: newProductArray)
+        }
     }
 }
 
 struct MenuReviewContainer_Previews: PreviewProvider {
     static var previews: some View {
         MenuReviewContainer(
-            menu: "삼겹살",
+            quantity: 10,
             price: 5000,
-            quantity: 10
+            menu: "삼겹살"
         )
     }
 }
