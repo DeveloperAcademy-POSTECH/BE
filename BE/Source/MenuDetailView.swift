@@ -20,11 +20,11 @@ struct MenuDetailView: View {
         for _ in (0..<quantity) {
             orderItemArray.append(menuModel.menu)
         }
-
+        
         OrderManager.shared.addMenu(menus: orderItemArray)
         
         presentationMode.wrappedValue.dismiss()
-
+        
     }
     
     var body: some View {
@@ -71,18 +71,26 @@ struct MenuDetailView: View {
                             .onChange(of: quantity) { newValue in
                                 self.totalCost = newValue * menuModel.price
                             }
+                            .padding(.vertical, 18)
+                            .padding(.horizontal, 20)
+                            .background(.white)
+                            .cornerRadius(10)
+                        
                     }
-                    .padding(.horizontal, 24)
+                    .padding(.leading, 23)
+                    .padding(.trailing, 21)
                     
                     HStack {
                         Text("총 주문금액")
                             .font(.title3)
-                        
+                            .foregroundColor(.gray)
                         Spacer()
                         
                         Text("\(totalCost)" + " 원")
+                            .foregroundColor(.gray)
                     }
-                    .padding(.horizontal, 24)
+                    .padding(.top, 18)
+                    .padding(.horizontal, 23)
                     
                     Spacer()
                     

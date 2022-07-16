@@ -21,6 +21,11 @@ struct MenuReviewContainer: View {
                     .font(.headline)
 
                 Spacer()
+                
+                Button(action: {}) {
+                    Image(systemName: "multiply")
+                        .foregroundColor(.gray)
+                }
             }
             
             HStack {
@@ -30,9 +35,10 @@ struct MenuReviewContainer: View {
                 
                 CustomStepper(quantity: $quantity)
             }
+            .padding(.top, 16)
         }
         .padding(.vertical, 17)
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 15)
         .background(.white)
         .cornerRadius(10)
         .onChange(of: quantity) { newValue in
