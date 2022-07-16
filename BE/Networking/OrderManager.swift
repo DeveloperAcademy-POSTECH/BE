@@ -41,6 +41,7 @@ class OrderManager: ObservableObject {
     private init() { }
 
     @Published private var selectedMenues: [String] = []
+    @Published private var orderHistory: [String] = []
     @Published private var orderAvailable: Bool = false
     
     func fetchOrderAvailable() -> Bool { return self.orderAvailable }    
@@ -84,9 +85,11 @@ class OrderManager: ObservableObject {
     func fetchSelectedMenuesCount() -> Int { return self.selectedMenues.count }
 
     func fetchSelectedMenues() -> [String] { return self.selectedMenues }
-    
+
     func clearSelectedMenues() { return self.selectedMenues.removeAll() }
-    
+
+    func createOrderHistory() { self.orderHistory = self.selectedMenues }
+        
     func updateSelectedMenuQuantity(menuName: String, newOrder: [String]) {
         var filteredArray = self.selectedMenues.filter { (item) -> Bool in
             return !item.contains(menuName)
@@ -136,6 +139,47 @@ class OrderManager: ObservableObject {
                 original, pepper, soySauce, originalExtra, pepperExtra, soySauceExtra
             ]
         }
+    }
+    
+    func fetchOrderHistory() -> [MenuItem] {
+        var original = MenuItem(name: .original, quantity: 0)
+        var pepper = MenuItem(name: .pepper, quantity: 0)
+        var soySauce = MenuItem(name: .soySauce, quantity: 0)
+        var originalExtra = MenuItem(name: .originalExtra, quantity: 0)
+        var pepperExtra = MenuItem(name: .peperExtra, quantity: 0)
+        var soySauceExtra = MenuItem(name: .soySauceExtra, quantity: 0)
+
+        for item in self.orderHistory {
+            switch item {
+            case ChamMenuName.original.rawValue:
+                original.quantity += 1
+            case ChamMenuName.pepper.rawValue:
+                pepper.quantity += 1
+            case ChamMenuName.soySauce.rawValue:
+                soySauce.quantity += 1
+            case ChamMenuName.originalExtra.rawValue:
+                originalExtra.quantity += 1
+            case ChamMenuName.peperExtra.rawValue:
+                pepperExtra.quantity += 1
+            case ChamMenuName.soySauceExtra.rawValue:
+                soySauceExtra.quantity += 1
+            default:
+                print("==========================")
+                print("fetchOrderHistory Error")
+                print("OrderManger-fetchOrderHistory")
+                print("==========================")
+                return []
+            }
+        }
+
+        if orderHistory.count == 0 {
+            return []
+        } else {
+            return [
+                original, pepper, soySauce, originalExtra, pepperExtra, soySauceExtra
+            ]
+        }
+
     }
 
     func requestPickUpUsers(completion: @escaping ([User], Error?) -> Void) {
@@ -229,6 +273,7 @@ class OrderManager: ObservableObject {
             switch response.result {
             case .success(let string):
                 print(string)
+                self.orderHistory = []
             case .failure(let error):
                 print(error.localizedDescription)
             }

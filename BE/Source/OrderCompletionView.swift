@@ -9,7 +9,6 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct OrderCompletionView: View {
-//    @Environment(\.presentationMode) var presentationMode
     @State var orderList : [MenuItem] = OrderManager.shared.fetchCountPerMenues()
     @State var accountNumberAnimation: Bool = true
     @State var isEnabled: Bool = true
@@ -100,7 +99,7 @@ struct OrderCompletionView: View {
                                     
                                     Spacer()
                                     
-                                    Text("\(item.price)")
+                                    Text("\(item.quantity * item.price)원")
                                 }
                                 .padding(17)
                             }
@@ -119,6 +118,7 @@ struct OrderCompletionView: View {
                     backgroundColor: Color.container,
                     action: {
 //                        NavigationUtil.popToRootView()
+                        OrderManager.shared.createOrderHistory()
                         OrderManager.shared.clearSelectedMenues()
                     }
                 )
