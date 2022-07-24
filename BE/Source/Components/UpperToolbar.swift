@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct UpperToolbar: View {
-    
     @ObservedObject var menuViewModel: MenuViewModel = MenuViewModel()
     @Environment(\.presentationMode) var presentationMode
     

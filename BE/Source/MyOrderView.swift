@@ -46,7 +46,7 @@ struct MyOrderView: View {
                     ScrollView {
                         ForEach(orderManger.fetchOrderHistory(), id: \.self) { item in
                             if item.quantity != 0 {
-                                MenuReviewContainer(
+                                MenuHistoryView(
                                     quantity: item.quantity,
                                     price: item.price,
                                     menu: item.name

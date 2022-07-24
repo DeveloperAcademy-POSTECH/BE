@@ -22,7 +22,7 @@ struct MenuReviewContainer: View {
 
                 Spacer()
                 
-                Button(action: {}) {
+                Button(action: { self.quantity = 0 }) {
                     Image(systemName: "multiply")
                         .foregroundColor(.gray)
                 }
@@ -57,7 +57,7 @@ struct MenuReviewContainer_Previews: PreviewProvider {
         MenuReviewContainer(
             quantity: 10,
             price: 5000,
-            menu: "삼겹살"
+            menu: "닭갈비덮밥"
         )
     }
 }
