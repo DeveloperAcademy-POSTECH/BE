@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuView: View {
     @StateObject var orderManager: OrderManager = OrderManager.shared
     @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    @State var popToRoot: Bool = false
     @State var isShowFullModal: Bool = true {
         didSet {
             isFirstLaunching = isShowFullModal
@@ -20,9 +21,6 @@ struct MenuView: View {
             showPicekrView = !OrderManager.shared.fetchOrderAvailable()
         }
     }
-    
-    @State var popToRoot: Bool = false
-    
     var menuList = [
         MenuModel(menu: .original, price: .normal),
         MenuModel(menu: .originalExtra, price: .extra),
@@ -105,50 +103,57 @@ struct MenuView: View {
             }// VStack
             .background(Color.main)
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                NavigationLink(destination: MyOrderView().navigationTitle("MY애점")) {
+                    Image(systemName: "person.fill")
+                        .font(.title3)
+                        .foregroundColor(.white)
+                }
+                
+            }// NavigationView
+            .fullScreenCover(isPresented: $isShowFullModal) {
+                OnboardingTabView(isFirstLaunching: $isShowFullModal)
+            }
+            .fullScreenCover(isPresented: $showPicekrView) {
+                
+            }
+            .accentColor(.white)
             
-        }// NavigationView
-        .fullScreenCover(isPresented: $isShowFullModal) {
-            OnboardingTabView(isFirstLaunching: $isShowFullModal)
-        }
-        .fullScreenCover(isPresented: $showPicekrView) {
-            
-        }
-        .accentColor(.white)
-        .navigationTitle("")
-    }// body
-}// MenuView
-
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuView()
-    }
-}
-
-struct CartButton: View {
-    let quantity: Int
+        }// body
+    }// MenuView
     
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(.main)
-                .frame(maxWidth: 65, maxHeight: 65)
-            
-            Image(systemName: "cart.fill")
-                .foregroundColor(.background)
-                .font(.largeTitle)
-            
+    struct MenuView_Previews: PreviewProvider {
+        static var previews: some View {
+            MenuView()
+        }
+    }
+    
+    struct CartButton: View {
+        let quantity: Int
+        
+        var body: some View {
             ZStack {
-                Circle()
-                    .foregroundColor(.background)
-                    .frame(maxWidth: 25, maxHeight: 25)
-                    .padding(.leading, 30)
-                    .padding(.bottom, 25)
-                
-                Text("\(quantity)")
+                RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(.main)
-                    .padding(.leading, 30)
-                    .padding(.bottom, 25)
+                    .frame(maxWidth: 65, maxHeight: 65)
                 
+                Image(systemName: "cart.fill")
+                    .foregroundColor(.background)
+                    .font(.largeTitle)
+                
+                ZStack {
+                    Circle()
+                        .foregroundColor(.background)
+                        .frame(maxWidth: 25, maxHeight: 25)
+                        .padding(.leading, 30)
+                        .padding(.bottom, 25)
+                    
+                    Text("\(quantity)")
+                        .foregroundColor(.main)
+                        .padding(.leading, 30)
+                        .padding(.bottom, 25)
+                    
+                }
             }
         }
     }

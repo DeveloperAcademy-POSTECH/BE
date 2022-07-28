@@ -8,17 +8,23 @@
 import SwiftUI
 
 struct MyOrderView: View {
-    
     @State var showAlert: Bool = false
+    @Environment(\.presentationMode) var presentationMode
+    let orderManger = OrderManager.shared
+    var totalPrice: Int {
+        let menus = orderManger.fetchOrderHistory()
+        var temp = 0
+        for menu in menus {
+            temp += menu.price * menu.quantity
+        }
+        
+        return temp
+    }
     
     var body: some View {
-        VStack {
-            Text("MY애점")
-                .foregroundColor(.white)
-            
+        VStack {            
             ZStack {
                 BackgroundRectangle()
-                
                 
                 VStack {
                     HStack {
@@ -37,39 +43,23 @@ struct MyOrderView: View {
                     .foregroundColor(Color.main)
                     .font(.headline)
                     
-                    VStack (spacing: 0) {
-                        HStack {
-                            Text("삼겹살")
-                            
-                            Spacer()
-                            
-                            Text("1")
-                            
-                            Spacer()
-                            
-                            Text("6,500원")
+                    ScrollView {
+                        ForEach(orderManger.fetchOrderHistory(), id: \.self) { item in
+                            if item.quantity != 0 {
+                                MenuHistoryView(
+                                    quantity: item.quantity,
+                                    price: item.price,
+                                    menu: item.name
+                                )
+                            }
                         }
-                        .padding(17)
                         
-                        HStack {
-                            Text("삼겹살")
-                            
-                            Spacer()
-                            
-                            Text("1")
-                            
-                            Spacer()
-                            
-                            Text("6,500원")
-                        }
-                        .padding(17)
-
                         HStack {
                             Text("총 주문금액")
                             
                             Spacer()
                             
-                            Text("12,000원")
+                            Text("\(totalPrice)")
                         }
                         .padding(17)
                     }
@@ -87,18 +77,21 @@ struct MyOrderView: View {
                             title: Text("주문취소"),
                             message: Text("정말 주문을 취소하시겠습니까? 취소 시 식사를 배달 받으실 수 있습니다."),
                             primaryButton: .default(
-                                Text("취소"),
+                                Text("뒤로가기"),
                                 action: { }
                             ),
                             secondaryButton: .destructive(
-                                Text("확인"),
-                                action: { }
+                                Text("주문취소"),
+                                action: {
+                                    orderManger.cancellOrder()
+                                    presentationMode.wrappedValue.dismiss()
+                                }
                             )
                         )
                     }
                 }
                 .padding(.horizontal, 20)
-
+                
             }// ZStack
             
         }// VStack

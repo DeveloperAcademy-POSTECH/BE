@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37B042082875E32F0043E9CB /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B042072875E32F0043E9CB /* Secret.swift */; };
 		7A0AD46E2870A8C500F81DBE /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0AD46D2870A8C500F81DBE /* CartView.swift */; };
 		7A0AD4702870AABB00F81DBE /* MenuTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0AD46F2870AABB00F81DBE /* MenuTitle.swift */; };
 		7A0AD4722870AB5400F81DBE /* BackgroundRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0AD4712870AB5400F81DBE /* BackgroundRectangle.swift */; };
@@ -22,6 +21,7 @@
 		7A3DF7A028703EAA00CCC81A /* OnboardingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DF79F28703EAA00CCC81A /* OnboardingTabView.swift */; };
 		7A3DF7A2287044DC00CCC81A /* OnboardingLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DF7A1287044DC00CCC81A /* OnboardingLastView.swift */; };
 		7A3DF7A428704AFC00CCC81A /* RegisterSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DF7A328704AFC00CCC81A /* RegisterSessionView.swift */; };
+		7A4FC5E02880933100505A4F /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FC5DF2880933100505A4F /* Secret.swift */; };
 		7A63FFE32870C87A00DCBCB9 /* MyOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFE22870C87A00DCBCB9 /* MyOrderView.swift */; };
 		7A63FFE92870D0D700DCBCB9 /* OnboardingSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFE82870D0D700DCBCB9 /* OnboardingSecondView.swift */; };
 		7A63FFEB2870E7E200DCBCB9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFEA2870E7E200DCBCB9 /* UserModel.swift */; };
@@ -29,6 +29,7 @@
 		7A63FFEF2870E97700DCBCB9 /* RestaurantInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFEE2870E97700DCBCB9 /* RestaurantInfo.swift */; };
 		7A63FFF12870E9BA00DCBCB9 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFF02870E9BA00DCBCB9 /* MenuModel.swift */; };
 		7A63FFF82870F6D300DCBCB9 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A63FFF72870F6D300DCBCB9 /* OrderViewModel.swift */; };
+		7AAE0DD7288D9B21004C6CBE /* MenuHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAE0DD6288D9B21004C6CBE /* MenuHistoryView.swift */; };
 		7AB4047C28706D7B0000E192 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4047B28706D7B0000E192 /* MenuView.swift */; };
 		7AB4047E287071D20000E192 /* MenuDetailLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4047D287071D20000E192 /* MenuDetailLink.swift */; };
 		7AB40480287079310000E192 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB4047F287079310000E192 /* MenuViewModel.swift */; };
@@ -37,7 +38,6 @@
 		7AB40486287095980000E192 /* RadioButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB40485287095980000E192 /* RadioButtonContainer.swift */; };
 		8924F813287601260075C4D5 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924F812287601260075C4D5 /* NavigationUtil.swift */; };
 		B2B33DC628761A2C00844873 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		B2B33DCB28761B8800844873 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B33DCA28761B8800844873 /* Secret.swift */; };
 		B2B33DCD28761C0700844873 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B33DCC28761C0700844873 /* PickerView.swift */; };
 		C033B7DB287058D600ABED90 /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7DA287058D600ABED90 /* VerificationCodeView.swift */; };
 		C033B7DD28706DFB00ABED90 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B7DC28706DFB00ABED90 /* VerificationViewModel.swift */; };
@@ -60,7 +60,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		37B042072875E32F0043E9CB /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		6AC41999BD864A6334FDBEAA /* Pods-BE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BE.release.xcconfig"; path = "Target Support Files/Pods-BE/Pods-BE.release.xcconfig"; sourceTree = "<group>"; };
 		7183E9D455D84C6700905EBA /* Pods_BE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0AD46D2870A8C500F81DBE /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		7A3DF79F28703EAA00CCC81A /* OnboardingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTabView.swift; sourceTree = "<group>"; };
 		7A3DF7A1287044DC00CCC81A /* OnboardingLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLastView.swift; sourceTree = "<group>"; };
 		7A3DF7A328704AFC00CCC81A /* RegisterSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSessionView.swift; sourceTree = "<group>"; };
+		7A4FC5DF2880933100505A4F /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		7A63FFE22870C87A00DCBCB9 /* MyOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderView.swift; sourceTree = "<group>"; };
 		7A63FFE82870D0D700DCBCB9 /* OnboardingSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSecondView.swift; sourceTree = "<group>"; };
 		7A63FFEA2870E7E200DCBCB9 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -84,6 +84,7 @@
 		7A63FFEE2870E97700DCBCB9 /* RestaurantInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfo.swift; sourceTree = "<group>"; };
 		7A63FFF02870E9BA00DCBCB9 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		7A63FFF72870F6D300DCBCB9 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		7AAE0DD6288D9B21004C6CBE /* MenuHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHistoryView.swift; sourceTree = "<group>"; };
 		7AB4047B28706D7B0000E192 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		7AB4047D287071D20000E192 /* MenuDetailLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailLink.swift; sourceTree = "<group>"; };
 		7AB4047F287079310000E192 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		7AB4048328708D450000E192 /* UpperToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperToolbar.swift; sourceTree = "<group>"; };
 		7AB40485287095980000E192 /* RadioButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonContainer.swift; sourceTree = "<group>"; };
 		8924F812287601260075C4D5 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
-		B2B33DCA28761B8800844873 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		B2B33DCC28761C0700844873 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		C033B7DA287058D600ABED90 /* VerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeView.swift; sourceTree = "<group>"; };
 		C033B7DC28706DFB00ABED90 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		B2B33DC928761B7F00844873 /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
-				B2B33DCA28761B8800844873 /* Secret.swift */,
+				7A4FC5DF2880933100505A4F /* Secret.swift */,
 			);
 			path = Secrets;
 			sourceTree = "<group>";
@@ -151,13 +151,6 @@
 				6AC41999BD864A6334FDBEAA /* Pods-BE.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		C07F9D062870B94800F0777B /* Secrets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Secrets;
 			sourceTree = "<group>";
 		};
 		C0890318287021F200359264 /* Util */ = {
@@ -201,7 +194,6 @@
 				7A3DF79D28703CB800CCC81A /* OnboardingFirstView.swift */,
 				7A3DF79F28703EAA00CCC81A /* OnboardingTabView.swift */,
 				7A3DF7A1287044DC00CCC81A /* OnboardingLastView.swift */,
-				B26C81C32875F93200CDF4C0 /* PickerView.swift */,
 				7AB4047B28706D7B0000E192 /* MenuView.swift */,
 				7AB4047F287079310000E192 /* MenuViewModel.swift */,
 				7AB4048128708C6D0000E192 /* MenuDetailView.swift */,
@@ -223,6 +215,7 @@
 				7A0AD4732870AC8200F81DBE /* MenuReviewContainer.swift */,
 				7A0AD4752870B1E300F81DBE /* CustomStepper.swift */,
 				7A0AD4772870B48200F81DBE /* LongBottomButton.swift */,
+				7AAE0DD6288D9B21004C6CBE /* MenuHistoryView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -419,12 +412,10 @@
 				7A0AD4762870B1E300F81DBE /* CustomStepper.swift in Sources */,
 				7AB4047C28706D7B0000E192 /* MenuView.swift in Sources */,
 				7AB4048428708D450000E192 /* UpperToolbar.swift in Sources */,
-				B2B33DCB28761B8800844873 /* Secret.swift in Sources */,
 				B2B33DC628761A2C00844873 /* (null) in Sources */,
 				C0E0B0CE287013BC0081DD1F /* ContentView.swift in Sources */,
 				C033B7DF2870744700ABED90 /* VerificationCodeViewModel.swift in Sources */,
 				7A3DF79C2870308100CCC81A /* View.swift in Sources */,
-				37B042082875E32F0043E9CB /* Secret.swift in Sources */,
 				7AB40486287095980000E192 /* RadioButtonContainer.swift in Sources */,
 				B2B33DCD28761C0700844873 /* PickerView.swift in Sources */,
 				8924F813287601260075C4D5 /* NavigationUtil.swift in Sources */,
@@ -444,10 +435,10 @@
 				C033B7DD28706DFB00ABED90 /* VerificationViewModel.swift in Sources */,
 				C08903232870230C00359264 /* String.swift in Sources */,
 				7A0AD4702870AABB00F81DBE /* MenuTitle.swift in Sources */,
+				7A4FC5E02880933100505A4F /* Secret.swift in Sources */,
 				C089033128704B9F00359264 /* Color.swift in Sources */,
 				C033B7E32870840700ABED90 /* UIViewController.swift in Sources */,
 				C0E0B0CC287013BC0081DD1F /* BEApp.swift in Sources */,
-				B26C81C42875F93200CDF4C0 /* PickerView.swift in Sources */,
 				7A63FFF82870F6D300DCBCB9 /* OrderViewModel.swift in Sources */,
 				7A3DF7A2287044DC00CCC81A /* OnboardingLastView.swift in Sources */,
 				7AB4047E287071D20000E192 /* MenuDetailLink.swift in Sources */,
@@ -456,6 +447,7 @@
 				7A63FFF12870E9BA00DCBCB9 /* MenuModel.swift in Sources */,
 				7A63FFEB2870E7E200DCBCB9 /* UserModel.swift in Sources */,
 				7A63FFED2870E89500DCBCB9 /* OrderModel.swift in Sources */,
+				7AAE0DD7288D9B21004C6CBE /* MenuHistoryView.swift in Sources */,
 				C089032B287038D500359264 /* VerificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

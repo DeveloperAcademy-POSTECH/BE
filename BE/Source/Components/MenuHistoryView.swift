@@ -1,13 +1,13 @@
 //
-//  MenuReviewContainer.swift
+//  MenuHistoryView.swift
 //  BE
 //
-//  Created by Noah's Ark on 2022/07/03.
+//  Created by Noah's Ark on 2022/07/25.
 //
 
 import SwiftUI
 
-struct MenuReviewContainer: View {
+struct MenuHistoryView: View {
     @State var quantity: Int
 
     let price: Int
@@ -20,20 +20,13 @@ struct MenuReviewContainer: View {
                 Text(menu)
                     .font(.headline)
 
-                Spacer()
-                
-                Button(action: { self.quantity = 0 }) {
-                    Image(systemName: "multiply")
-                        .foregroundColor(.gray)
-                }
+                Spacer()                
             }
             
             HStack {
                 Text("\(price * quantity)" + "원")
                 
                 Spacer()
-                
-                CustomStepper(quantity: $quantity)
             }
             .padding(.top, 16)
         }
@@ -49,12 +42,13 @@ struct MenuReviewContainer: View {
             }
             orderManager.updateSelectedMenuQuantity(menuName: menu, newOrder: newProductArray)
         }
-    }
-}
+        
+    }// body
+}// MenuHistoryView
 
-struct MenuReviewContainer_Previews: PreviewProvider {
+struct MenuHistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuReviewContainer(
+        MenuHistoryView(
             quantity: 10,
             price: 5000,
             menu: "닭갈비덮밥"
